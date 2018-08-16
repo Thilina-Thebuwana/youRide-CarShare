@@ -1,0 +1,62 @@
+<%= form_with(model: car, local: true) do |form| %>
+  <% if car.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(car.errors.count, "error") %> prohibited this car from being saved:</h2>
+
+      <ul>
+      <% car.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :car_name %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :make %>
+    <%= form.text_field :make, id: :car_make %>
+  </div>
+
+  <div class="field">
+    <%= form.label :model %>
+    <%= form.text_field :model, id: :car_model %>
+  </div>
+
+  <div class="field">
+    <%= form.label :number_plate %>
+    <%= form.text_field :number_plate, id: :car_number_plate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :color %>
+    <%= form.text_field :color, id: :car_color %>
+  </div>
+
+  <div class="field">
+    <%= form.label :seat_count %>
+    <%= form.text_field :seat_count, id: :car_seat_count %>
+  </div>
+
+  <div class="field">
+    <%= form.label :current_address %>
+    <%= form.text_field :current_address, id: :car_current_address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :latitude %>
+    <%= form.text_field :latitude, id: :car_latitude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :longitude %>
+    <%= form.text_field :longitude, id: :car_longitude %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
