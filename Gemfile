@@ -10,8 +10,11 @@ end
 gem 'rails', '~> 5.1.6'
 # Use sqlite3 as the database for Active Record
 <<<<<<< HEAD
+<<<<<<< HEAD
 gem 'sqlite3'
 =======
+=======
+>>>>>>> Thilina
 group :development, :test do
   gem 'sqlite3'
 end
@@ -19,7 +22,10 @@ end
 group :production do
   gem 'pg', '~> 0.18'
 end
+<<<<<<< HEAD
 >>>>>>> MeryemKoken
+=======
+>>>>>>> Thilina
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -45,19 +51,27 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 gem 'pg'
 =======
 >>>>>>> MeryemKoken
+=======
+>>>>>>> Thilina
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem "bootstrap-sass-rails"
 gem 'omniauth-google-oauth2'
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 gem 'geocoder'
 gem 'gmaps4rails'
 >>>>>>> MeryemKoken
+=======
+gem 'geocoder'
+gem 'gmaps4rails'
+>>>>>>> Thilina
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
