@@ -11041,3 +11041,89 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 2802ms (Views: 2689.6ms | ActiveRecord: 1.0ms)
 
 
+Started GET "/users/sign_out" for 127.0.0.1 at 2018-08-16 23:46:27 +1000
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-08-16 23:46:44 +1000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered home/index.html.erb within layouts/application (3419.2ms)
+Completed 200 OK in 9460ms (Views: 9295.8ms | ActiveRecord: 5.0ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2018-08-16 23:49:03 +1000
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"jgeOxlG/nUjJLVT+b5FoRMcTVHF708uJ9pXhZkp4/o/Lh5LjP0TCuz2gSwYJBcuLh0A8mYHMNCVboQk3XAA2OA=="}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 97ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-16 23:49:03 +1000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (41.1ms)
+Completed 200 OK in 1488ms (Views: 1359.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-08-16 23:49:13 +1000
+Processing by ReigistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (10.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (458.7ms)
+Completed 200 OK in 4851ms (Views: 4844.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/google_oauth2" for 127.0.0.1 at 2018-08-16 23:49:22 +1000
+Started GET "/users/auth/google_oauth2" for 127.0.0.1 at 2018-08-16 23:49:23 +1000
+Started GET "/users/auth/google_oauth2/callback?state=5233b95da3c09e3fb371d61f02daa00f256de25fac7e5a2e&code=4/PAAjzVze0gVQzLkUNR5yRb9Yx0oh-Hyyw3lPQQUGEL2BDsDPlW60QR7AZkScMvCzehKTdHTTwle98DaDLTZApbc" for 127.0.0.1 at 2018-08-16 23:49:29 +1000
+Processing by CallbacksController#google_oauth2 as HTML
+  Parameters: {"state"=>"5233b95da3c09e3fb371d61f02daa00f256de25fac7e5a2e", "code"=>"4/PAAjzVze0gVQzLkUNR5yRb9Yx0oh-Hyyw3lPQQUGEL2BDsDPlW60QR7AZkScMvCzehKTdHTTwle98DaDLTZApbc"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["provider", "google_oauth2"], ["uid", "109115847218171805508"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (9.0ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2018-08-16 13:49:32.116480"], ["last_sign_in_at", "2018-08-15 06:01:43.111810"], ["sign_in_count", 13], ["updated_at", "2018-08-16 13:49:32.124491"], ["id", 2]]
+  [1m[35m (20.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 68ms (ActiveRecord: 29.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-16 23:49:32 +1000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered home/index.html.erb within layouts/application (65.1ms)
+Completed 200 OK in 2516ms (Views: 2279.1ms | ActiveRecord: 1.0ms)
+
+
