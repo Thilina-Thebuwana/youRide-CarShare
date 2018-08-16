@@ -12,19 +12,6 @@
 //
 //= require rails-ujs
 //= require turbolinks
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 //= require underscore
 //= require gmaps/google
->>>>>>> MeryemKoken
-=======
-//= require underscore
-//= require gmaps/google
->>>>>>> Thilina
-=======
-//= require underscore
-//= require gmaps/google
->>>>>>> mehmed
 //= require_tree .

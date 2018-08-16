@@ -1,39 +1,18 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
-=======
-=======
->>>>>>> Thilina
-=======
->>>>>>> mehmed
 
 
 <% if user_signed_in? %>
-    <div style="'width: 800px">
-        <div id = "map" style = "width: 800=px; height: 400px;"></div>
-    </div>
-<script type="application/javascript">
-    handler = Gmaps.build('Google'); 
-    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-    markers = handler.addMarkers([
-        {
-            "lat": (<%= current_user.latitude %>),
-            "lng": (<%= current_user.longitude%>),
-            "picture": {
-            "url": "https://static.vecteezy.com/system/resources/previews/000/014/975/non_2x/vector-free-google-maps-pointer-icon.jpg",
-            "width":  32,
-            "height": 32
-        },
-            "infowindow": "hello!"
-        }
-        ]);
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-        });
-</script>
+    <%= image_tag("youRide logo-wsymbol.png", :size => "250x250", :class => "center-block") %>
 
+    <%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %> 
+
+    <div id = "button-inline">
+        <div id = "button-center"> <%= link_to '<button type="button" class ="btn btn-default">Avaliable Cars</button>'.html_safe, cars_path %></div>
+        
+        <div id = "button-center"> <%= link_to '<button type="button" class ="btn btn-default">Make Booking</button>'.html_safe, new_booking_path %></div>
+            
+        <div id = "button-center"> <%= link_to '<button type="button" class ="btn btn-default">Previous Bookings</button>'.html_safe, bookings_path %></div>
+        
+</div>
 <% else %>
 
 <%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %>
@@ -42,17 +21,8 @@
 
 <landing-text><h1>Melbourne's premier car sharing service</h1></landing-text>
 
-<div id = "button-inline">
+<div id = "row-fluid">
    <div id = "button-center"> <%= link_to '<button type="button" class ="btn btn-default">Login</button>'.html_safe, new_user_session_path %></div>
    <div id = "button-center"> <%= link_to '<button type="button" class ="btn btn-default">Sign Up</button>'.html_safe, new_user_registration_path %></div>
 </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
 <% end %>
->>>>>>> MeryemKoken
-=======
-<% end %>
->>>>>>> Thilina
-=======
-<% end %>
->>>>>>> mehmed
