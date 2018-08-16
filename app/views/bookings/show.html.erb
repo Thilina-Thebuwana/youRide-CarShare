@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Your Booking</h1>
+
+<p>
+  <strong>Car:</strong>
+  <%= @booking.car.name %>
+</p>
+
+<p>
+  <strong>Pick Up/ Drop Off Location:</strong>
+  <%= @booking.car.current_address %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @booking.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @booking.end_time %>
+</p>
+
+<%= link_to 'Edit', edit_booking_path(@booking) %> |
+<%= link_to 'Back', bookings_path %>
