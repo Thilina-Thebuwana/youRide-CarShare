@@ -83,13 +83,17 @@ GEM
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     globalid (0.4.1)
       activesupport (>= 4.2.0)
 =======
+=======
+>>>>>>> Connor
     geocoder (1.5.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     gmaps4rails (2.1.2)
+<<<<<<< HEAD
 >>>>>>> MeryemKoken
 =======
 =======
@@ -102,6 +106,8 @@ GEM
 >>>>>>> Thilina
 =======
 >>>>>>> mehmed
+=======
+>>>>>>> Connor
     hashie (3.5.7)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
@@ -146,6 +152,7 @@ GEM
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     pg (1.0.0-x86-mingw32)
 =======
     pg (0.21.0-x86-mingw32)
@@ -156,6 +163,9 @@ GEM
 =======
     pg (0.21.0-x86-mingw32)
 >>>>>>> mehmed
+=======
+    pg (0.21.0-x86-mingw32)
+>>>>>>> Connor
     public_suffix (3.0.2)
     puma (3.12.0)
     rack (2.0.5)
@@ -252,6 +262,7 @@ DEPENDENCIES
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   geocoder
   gmaps4rails
@@ -264,10 +275,15 @@ DEPENDENCIES
   geocoder
   gmaps4rails
 >>>>>>> mehmed
+=======
+  geocoder
+  gmaps4rails
+>>>>>>> Connor
   jbuilder (~> 2.5)
   omniauth
   omniauth-facebook
   omniauth-google-oauth2
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -281,6 +297,9 @@ DEPENDENCIES
 =======
   pg (~> 0.18)
 >>>>>>> mehmed
+=======
+  pg (~> 0.18)
+>>>>>>> Connor
   puma (~> 3.7)
   rails (~> 5.1.6)
   sass-rails (~> 5.0)

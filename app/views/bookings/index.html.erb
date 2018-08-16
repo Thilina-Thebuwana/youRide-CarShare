@@ -5,7 +5,10 @@
 <table>
   <thead>
     <tr>
+<<<<<<< HEAD
       <th>User</th>
+=======
+>>>>>>> Connor
       <th>Car</th>
       <th>Start time</th>
       <th>End time</th>
@@ -16,8 +19,12 @@
   <tbody>
     <% @bookings.each do |booking| %>
       <tr>
+<<<<<<< HEAD
         <td><%= booking.user %></td>
         <td><%= booking.car %></td>
+=======
+        <td><%= booking.car.name %></td>
+>>>>>>> Connor
         <td><%= booking.start_time %></td>
         <td><%= booking.end_time %></td>
         <td><%= link_to 'Show', booking %></td>

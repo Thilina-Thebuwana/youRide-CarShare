@@ -4,7 +4,11 @@ class BookingsController < ApplicationController
   # GET /bookings
   # GET /bookings.json
   def index
+<<<<<<< HEAD
     @bookings = Booking.all
+=======
+    @bookings = Booking.where(:user_id => current_user.id)
+>>>>>>> Connor
   end
 
   # GET /bookings/1
