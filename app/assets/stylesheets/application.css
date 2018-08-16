@@ -13,3 +13,94 @@
  *= require_tree .
  *= require_self
  */
+<<<<<<< HEAD
+=======
+
+#video-background {
+/*  making the video fullscreen  */
+  position: fixed;
+  right: 0; 
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+  width: auto; 
+  height: auto;
+  z-index: -100;
+}
+
+video#bgvideo {
+position: fixed;
+top: 50%;
+left: 50%;
+min-width: 100%;
+min-height: 100%;
+width: auto;
+height: auto;
+z-index: -100;
+-ms-transform: translateX(-50%) translateY(-50%);
+-moz-transform: translateX(-50%) translateY(-50%);
+-webkit-transform: translateX(-50%) translateY(-50%);
+transform: translateX(-50%) translateY(-50%);
+background-size: cover;
+}
+
+.video {
+ position: fixed;
+ top: 50%; left: 50%;
+ z-index: -1;
+ min-width: 100%;
+ min-height: 100%;
+ width: auto;
+ height: auto;
+ transform: translate(-50%, -50%);
+}
+
+.center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+ }
+
+landing-text {
+    color: white;
+    text-align: center;
+    font-family: lato;
+    padding: 50px;
+}
+
+
+#outer
+{
+    width:100%;
+    
+    display: inline-block;
+}
+.inner
+{
+    display: inline-block;
+}
+
+#panel {
+    width: 100px;
+}
+
+
+background {
+    background-color: gray;
+    position: fixed;
+    top: 50%; left: 50%;
+z-index: -1;
+ min-width: 100%;
+ min-height: 100%;
+ width: auto;
+ height: auto;
+ transform: translate(-50%, -50%);
+}
+
+#button-center{
+     text-align:center;
+     margin: 10px;
+}
+
+>>>>>>> MeryemKoken

@@ -12,4 +12,9 @@
 //
 //= require rails-ujs
 //= require turbolinks
+<<<<<<< HEAD
+=======
+//= require underscore
+//= require gmaps/google
+>>>>>>> MeryemKoken
 //= require_tree .
