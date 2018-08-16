@@ -10,11 +10,14 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> mehmed
 =======
 >>>>>>> Connor
+=======
+>>>>>>> chris
     <script src="//maps.google.com/maps/api/js?key=AIzaSyA9gKdqNduJg4VfGFCZ4bchcG3AI9oCyMk"></script>
     <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
     <script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'>
@@ -24,11 +27,14 @@
       <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> Thilina
 =======
 >>>>>>> mehmed
 =======
 >>>>>>> Connor
+=======
+>>>>>>> chris
   </head>
     
     
@@ -40,7 +46,11 @@
         <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
             <ul class="nav navbar-nav navbar-right">
+<<<<<<< HEAD
                <li> <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> </li>
+=======
+               <li> <%= link_to 'My Profile', edit_user_registration_path, :class => 'navbar-link' %> </li>
+>>>>>>> chris
                <li> <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
             </ul>
             
@@ -49,17 +59,28 @@
             </a>
             
              <ul class="nav navbar-nav navbar-left">
+<<<<<<< HEAD
                <li> <%= link_to 'Available Cars', cars_path, :class => 'navbar-link' %> </li>
+=======
+               <li> <%= link_to 'Home', root_path, :class => 'navbar-link' %> </li>
+               <li> <%= link_to 'Available Cars', cars_path, :class => 'navbar-link' %> </li>
+               <li> <%= link_to 'Make Booking', new_booking_path, :class => 'navbar-link' %> </li>
+               <li> <%= link_to 'Previous Bookings', bookings_path, :class => 'navbar-link' %> </li>
+                
+>>>>>>> chris
             </ul>
           </div>
       </nav>
            
+<<<<<<< HEAD
                 Logged in as <strong><%= current_user.email%></strong>. |
                 current ip is <strong><%= current_user.current_sign_in_ip%></strong>. 
                 current set test ip is <strong><%= current_user.ip%></strong>. 
                 current longitude is <strong><%= current_user.longitude%></strong>.
                 current latitude is <strong><%= current_user.latitude%></strong>.
                 
+=======
+>>>>>>> chris
             <% else %>
       
       <nav class="navbar navbar-default">
@@ -86,6 +107,7 @@
        
       
     <%= yield %>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -165,5 +187,10 @@
        <p class="alert"><%= alert %></p>
       
 >>>>>>> Connor
+=======
+      <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+      
+>>>>>>> chris
   </body>
 </html>

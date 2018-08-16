@@ -2,6 +2,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <h1>Home#index</h1>
 <p>Find me in app/views/home/index.html.erb</p>
 =======
@@ -37,6 +38,23 @@
         });
 </script>
 
+=======
+
+
+<% if user_signed_in? %>
+    <%= image_tag("youRide logo-wsymbol.png", :size => "250x250", :class => "center-block") %>
+
+    <%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %> 
+
+    <div id = "button-inline">
+        <div id = "button-center"> <%= link_to '<button type="button" class ="btn btn-default">Avaliable Cars</button>'.html_safe, cars_path %></div>
+        
+        <div id = "button-center"> <%= link_to '<button type="button" class ="btn btn-default">Make Booking</button>'.html_safe, new_booking_path %></div>
+            
+        <div id = "button-center"> <%= link_to '<button type="button" class ="btn btn-default">Previous Bookings</button>'.html_safe, bookings_path %></div>
+        
+</div>
+>>>>>>> chris
 <% else %>
 
 <%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %>
@@ -45,6 +63,7 @@
 
 <landing-text><h1>Melbourne's premier car sharing service</h1></landing-text>
 
+<<<<<<< HEAD
 <div id = "button-inline">
    <div id = "button-center"> <%= link_to '<button type="button" class ="btn btn-default">Login</button>'.html_safe, new_user_session_path %></div>
    <div id = "button-center"> <%= link_to '<button type="button" class ="btn btn-default">Sign Up</button>'.html_safe, new_user_registration_path %></div>
@@ -63,3 +82,10 @@
 =======
 <% end %>
 >>>>>>> Connor
+=======
+<div id = "row-fluid">
+   <div id = "button-center"> <%= link_to '<button type="button" class ="btn btn-default">Login</button>'.html_safe, new_user_session_path %></div>
+   <div id = "button-center"> <%= link_to '<button type="button" class ="btn btn-default">Sign Up</button>'.html_safe, new_user_registration_path %></div>
+</div>
+<% end %>
+>>>>>>> chris

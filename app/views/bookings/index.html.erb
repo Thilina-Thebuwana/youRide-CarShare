@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p id="notice"><%= notice %></p>
 
 <h1>Bookings</h1>
@@ -38,3 +39,49 @@
 <br>
 
 <%= link_to 'New Booking', new_booking_path %>
+=======
+
+<p id="notice"><%= notice %></p>
+
+
+
+<% if user_signed_in? %>
+
+    <div class = "jumbotron">
+
+        <h1 class="display-3">My Previous Bookings</h1>
+        
+    
+
+    <table class = "table">
+    <thead>
+        <tr>
+            <th>Car</th>
+            <th>Start time</th>
+            <th>End time</th>
+            <th>pick-up/dropoff location</th>
+            <th colspan="3"></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @bookings.each do |booking| %>
+            <tr>
+                <td><%= booking.car.name %></td>
+                <td><%= booking.start_time %></td>
+                <td><%= booking.end_time %></td>
+                <td><%= booking.car.current_address %></td>
+                <td><%= link_to 'Show', booking %></td>
+            </tr>
+        <% end %>
+    </tbody>
+    </table>
+<%= link_to 'New Booking', new_booking_path %>
+</div>
+
+<% else %>
+
+<% end %>
+
+
+>>>>>>> chris

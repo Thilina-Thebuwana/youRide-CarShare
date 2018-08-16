@@ -14,6 +14,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20180806090009) do
 =======
 ActiveRecord::Schema.define(version: 20180808045830) do
@@ -23,6 +24,8 @@ ActiveRecord::Schema.define(version: 20180814043334) do
 =======
 =======
 >>>>>>> Connor
+=======
+>>>>>>> chris
 ActiveRecord::Schema.define(version: 20180814054642) do
 
   create_table "bookings", force: :cascade do |t|
@@ -36,9 +39,12 @@ ActiveRecord::Schema.define(version: 20180814054642) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> mehmed
 =======
 >>>>>>> Connor
+=======
+>>>>>>> chris
 
   create_table "cars", force: :cascade do |t|
     t.string "name"
@@ -56,11 +62,14 @@ ActiveRecord::Schema.define(version: 20180814054642) do
   end
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> Thilina
 =======
 >>>>>>> mehmed
 =======
 >>>>>>> Connor
+=======
+>>>>>>> chris
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -83,6 +92,7 @@ ActiveRecord::Schema.define(version: 20180814054642) do
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> Thilina
@@ -90,10 +100,13 @@ ActiveRecord::Schema.define(version: 20180814054642) do
 >>>>>>> mehmed
 =======
 >>>>>>> Connor
+=======
+>>>>>>> chris
     t.float "lattitude"
     t.float "latitude"
     t.float "longitude"
     t.string "ip"
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -104,6 +117,8 @@ ActiveRecord::Schema.define(version: 20180814054642) do
 >>>>>>> mehmed
 =======
 >>>>>>> Connor
+=======
+>>>>>>> chris
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

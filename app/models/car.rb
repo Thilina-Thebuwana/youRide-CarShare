@@ -1,6 +1,7 @@
 class Car < ApplicationRecord
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     
     has_many :bookings
@@ -9,4 +10,8 @@ class Car < ApplicationRecord
     
     has_many :bookings
 >>>>>>> Connor
+=======
+    
+    has_many :bookings
+>>>>>>> chris
 end

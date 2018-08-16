@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+  <div class="panel-body" >
+
+>>>>>>> chris
 <%= form_with(model: booking, local: true) do |form| %>
   <% if booking.errors.any? %>
     <div id="error_explanation">
@@ -11,6 +16,7 @@
     </div>
   <% end %>
 
+<<<<<<< HEAD
  
 
   <div class="field">
@@ -21,6 +27,17 @@
   <div class="field">
     <%= form.label :start_time %>
     <%= form.datetime_select :start_time, id: :booking_start_time %>
+=======
+
+  <div class="form-group">
+    <label><%= form.label :car_id %></label>
+    <%= form.collection_select(:car_id, Car.all, :id, :name )%>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :start_time %>
+    <%= form.datetime_select :start_time, id: :booking_start_time , class: "form-control" %>
+>>>>>>> chris
   </div>
 
   <div class="field">
@@ -31,4 +48,11 @@
   <div class="actions">
     <%= form.submit %>
   </div>
+<<<<<<< HEAD
 <% end %>
+=======
+
+
+<% end %>
+</div>
+>>>>>>> chris

@@ -16,6 +16,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 //= require underscore
 //= require gmaps/google
@@ -32,4 +33,8 @@
 //= require underscore
 //= require gmaps/google
 >>>>>>> Connor
+=======
+//= require underscore
+//= require gmaps/google
+>>>>>>> chris
 //= require_tree .

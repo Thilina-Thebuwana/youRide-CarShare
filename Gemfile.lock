@@ -49,6 +49,10 @@ GEM
       bootstrap-sass (~> 3.1.0.0)
       railties (>= 3.2.0)
       sass-rails (>= 3.2.0)
+<<<<<<< HEAD
+=======
+    bootstrap_form (2.7.0)
+>>>>>>> chris
     builder (3.2.3)
     byebug (10.0.2)
     capybara (2.18.0)
@@ -84,15 +88,19 @@ GEM
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     globalid (0.4.1)
       activesupport (>= 4.2.0)
 =======
 =======
 >>>>>>> Connor
+=======
+>>>>>>> chris
     geocoder (1.5.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     gmaps4rails (2.1.2)
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> MeryemKoken
 =======
@@ -108,6 +116,8 @@ GEM
 >>>>>>> mehmed
 =======
 >>>>>>> Connor
+=======
+>>>>>>> chris
     hashie (3.5.7)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
@@ -153,6 +163,7 @@ GEM
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     pg (1.0.0-x86-mingw32)
 =======
     pg (0.21.0-x86-mingw32)
@@ -166,6 +177,9 @@ GEM
 =======
     pg (0.21.0-x86-mingw32)
 >>>>>>> Connor
+=======
+    pg (0.21.0-x86-mingw32)
+>>>>>>> chris
     public_suffix (3.0.2)
     puma (3.12.0)
     rack (2.0.5)
@@ -254,11 +268,16 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass-rails
+<<<<<<< HEAD
+=======
+  bootstrap_form
+>>>>>>> chris
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
   coffee-script-source (= 1.8.0)
   devise
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -279,10 +298,15 @@ DEPENDENCIES
   geocoder
   gmaps4rails
 >>>>>>> Connor
+=======
+  geocoder
+  gmaps4rails
+>>>>>>> chris
   jbuilder (~> 2.5)
   omniauth
   omniauth-facebook
   omniauth-google-oauth2
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -300,6 +324,9 @@ DEPENDENCIES
 =======
   pg (~> 0.18)
 >>>>>>> Connor
+=======
+  pg (~> 0.18)
+>>>>>>> chris
   puma (~> 3.7)
   rails (~> 5.1.6)
   sass-rails (~> 5.0)

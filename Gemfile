@@ -13,6 +13,7 @@ gem 'rails', '~> 5.1.6'
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 gem 'sqlite3'
 =======
 =======
@@ -21,6 +22,8 @@ gem 'sqlite3'
 >>>>>>> mehmed
 =======
 >>>>>>> Connor
+=======
+>>>>>>> chris
 group :development, :test do
   gem 'sqlite3'
 end
@@ -31,6 +34,7 @@ end
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> MeryemKoken
 =======
 >>>>>>> Thilina
@@ -38,6 +42,8 @@ end
 >>>>>>> mehmed
 =======
 >>>>>>> Connor
+=======
+>>>>>>> chris
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -66,6 +72,7 @@ gem 'jbuilder', '~> 2.5'
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 gem 'pg'
 =======
 >>>>>>> MeryemKoken
@@ -75,11 +82,14 @@ gem 'pg'
 >>>>>>> mehmed
 =======
 >>>>>>> Connor
+=======
+>>>>>>> chris
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem "bootstrap-sass-rails"
 gem 'omniauth-google-oauth2'
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -100,6 +110,11 @@ gem 'gmaps4rails'
 gem 'geocoder'
 gem 'gmaps4rails'
 >>>>>>> Connor
+=======
+gem 'geocoder'
+gem 'gmaps4rails'
+gem 'bootstrap_form'
+>>>>>>> chris
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
