@@ -82,6 +82,7 @@ GEM
     ffi (1.9.25-x86-mingw32)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     globalid (0.4.1)
       activesupport (>= 4.2.0)
 =======
@@ -91,11 +92,16 @@ GEM
     gmaps4rails (2.1.2)
 >>>>>>> MeryemKoken
 =======
+=======
+>>>>>>> mehmed
     geocoder (1.5.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     gmaps4rails (2.1.2)
+<<<<<<< HEAD
 >>>>>>> Thilina
+=======
+>>>>>>> mehmed
     hashie (3.5.7)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
@@ -139,6 +145,7 @@ GEM
     orm_adapter (0.5.0)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     pg (1.0.0-x86-mingw32)
 =======
     pg (0.21.0-x86-mingw32)
@@ -146,6 +153,9 @@ GEM
 =======
     pg (0.21.0-x86-mingw32)
 >>>>>>> Thilina
+=======
+    pg (0.21.0-x86-mingw32)
+>>>>>>> mehmed
     public_suffix (3.0.2)
     puma (3.12.0)
     rack (2.0.5)
@@ -241,6 +251,7 @@ DEPENDENCIES
   devise
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   geocoder
   gmaps4rails
@@ -249,10 +260,15 @@ DEPENDENCIES
   geocoder
   gmaps4rails
 >>>>>>> Thilina
+=======
+  geocoder
+  gmaps4rails
+>>>>>>> mehmed
   jbuilder (~> 2.5)
   omniauth
   omniauth-facebook
   omniauth-google-oauth2
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   pg
@@ -262,6 +278,9 @@ DEPENDENCIES
 =======
   pg (~> 0.18)
 >>>>>>> Thilina
+=======
+  pg (~> 0.18)
+>>>>>>> mehmed
   puma (~> 3.7)
   rails (~> 5.1.6)
   sass-rails (~> 5.0)
