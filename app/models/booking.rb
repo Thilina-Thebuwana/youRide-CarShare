@@ -1,8 +1,4 @@
 class Booking < ApplicationRecord
-<<<<<<< HEAD
-  belongs_to :user
-  belongs_to :car
-=======
   validate :bookings_must_not_overlap
   
   belongs_to :user
@@ -25,5 +21,4 @@ end
     
     
    
->>>>>>> Thilina
 end
