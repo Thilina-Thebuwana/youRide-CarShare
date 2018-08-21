@@ -1,5 +1,13 @@
+<<<<<<< HEAD
   <div class="panel-body" >
 
+=======
+<<<<<<< HEAD
+=======
+  <div class="panel-body" >
+
+>>>>>>> chris
+>>>>>>> fbfddd8a571c58d4ee3d7636d49d397bdc26d1dc
 <%= form_with(model: booking, local: true) do |form| %>
   <% if booking.errors.any? %>
     <div id="error_explanation">
@@ -13,6 +21,11 @@
     </div>
   <% end %>
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+ 
+>>>>>>> fbfddd8a571c58d4ee3d7636d49d397bdc26d1dc
 
   <div class="form-group">
     <label><%= form.label :car_id %></label>
@@ -21,7 +34,22 @@
 
   <div class="form-group">
     <%= form.label :start_time %>
+<<<<<<< HEAD
     <%= form.time_select :start_time, id: :booking_start_time , class: "form-control" %>
+=======
+    <%= form.datetime_select :start_time, id: :booking_start_time %>
+=======
+
+  <div class="form-group">
+    <label><%= form.label :car_id %></label>
+    <%= form.collection_select(:car_id, Car.all, :id, :name )%>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :start_time %>
+    <%= form.datetime_select :start_time, id: :booking_start_time , class: "form-control" %>
+>>>>>>> chris
+>>>>>>> fbfddd8a571c58d4ee3d7636d49d397bdc26d1dc
   </div>
 
   <div class="field">
@@ -32,7 +60,17 @@
   <div class="actions">
     <%= form.submit %>
   </div>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<% end %>
+=======
+>>>>>>> fbfddd8a571c58d4ee3d7636d49d397bdc26d1dc
 
 
 <% end %>
 </div>
+<<<<<<< HEAD
+=======
+>>>>>>> chris
+>>>>>>> fbfddd8a571c58d4ee3d7636d49d397bdc26d1dc

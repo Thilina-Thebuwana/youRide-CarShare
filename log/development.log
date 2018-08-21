@@ -7816,6 +7816,11 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 15289ms (Views: 14522.7ms | ActiveRecord: 0.0ms)
 
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> fbfddd8a571c58d4ee3d7636d49d397bdc26d1dc
   [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
 Migrating to CreateCars (20180812071012)
   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
@@ -10643,6 +10648,7 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 2726ms (Views: 2463.1ms | ActiveRecord: 0.0ms)
 
 
+<<<<<<< HEAD
 Started GET "/bookings" for 127.0.0.1 at 2018-08-15 18:45:07 +1000
 Processing by BookingsController#index as HTML
   [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
@@ -11727,3 +11733,6 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 2912ms (Views: 2905.8ms | ActiveRecord: 0.0ms)
 
 
+=======
+>>>>>>> chris
+>>>>>>> fbfddd8a571c58d4ee3d7636d49d397bdc26d1dc

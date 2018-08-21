@@ -9,6 +9,24 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
 # Use sqlite3 as the database for Active Record
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+gem 'sqlite3'
+=======
+=======
+>>>>>>> Thilina
+=======
+>>>>>>> mehmed
+=======
+>>>>>>> Connor
+=======
+>>>>>>> chris
+>>>>>>> fbfddd8a571c58d4ee3d7636d49d397bdc26d1dc
 group :development, :test do
   gem 'sqlite3'
 end
@@ -16,6 +34,22 @@ end
 group :production do
   gem 'pg', '~> 0.18'
 end
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> MeryemKoken
+=======
+>>>>>>> Thilina
+=======
+>>>>>>> mehmed
+=======
+>>>>>>> Connor
+=======
+>>>>>>> chris
+>>>>>>> fbfddd8a571c58d4ee3d7636d49d397bdc26d1dc
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -40,14 +74,62 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+gem 'pg'
+=======
+>>>>>>> MeryemKoken
+=======
+>>>>>>> Thilina
+=======
+>>>>>>> mehmed
+=======
+>>>>>>> Connor
+=======
+>>>>>>> chris
+>>>>>>> fbfddd8a571c58d4ee3d7636d49d397bdc26d1dc
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem "bootstrap-sass-rails"
 gem 'omniauth-google-oauth2'
+<<<<<<< HEAD
 gem 'geocoder'
 gem 'gmaps4rails'
 gem 'bootstrap_form'
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+gem 'geocoder'
+gem 'gmaps4rails'
+>>>>>>> MeryemKoken
+=======
+gem 'geocoder'
+gem 'gmaps4rails'
+>>>>>>> Thilina
+=======
+gem 'geocoder'
+gem 'gmaps4rails'
+>>>>>>> mehmed
+=======
+gem 'geocoder'
+gem 'gmaps4rails'
+>>>>>>> Connor
+=======
+gem 'geocoder'
+gem 'gmaps4rails'
+gem 'bootstrap_form'
+>>>>>>> chris
+>>>>>>> fbfddd8a571c58d4ee3d7636d49d397bdc26d1dc
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

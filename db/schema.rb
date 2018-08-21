@@ -10,6 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20180806090009) do
+=======
+ActiveRecord::Schema.define(version: 20180808045830) do
+>>>>>>> MeryemKoken
+=======
+ActiveRecord::Schema.define(version: 20180814043334) do
+=======
+=======
+>>>>>>> Connor
+=======
+>>>>>>> chris
+>>>>>>> fbfddd8a571c58d4ee3d7636d49d397bdc26d1dc
 ActiveRecord::Schema.define(version: 20180814054642) do
 
   create_table "bookings", force: :cascade do |t|
@@ -22,6 +41,16 @@ ActiveRecord::Schema.define(version: 20180814054642) do
     t.index ["car_id"], name: "index_bookings_on_car_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> mehmed
+=======
+>>>>>>> Connor
+=======
+>>>>>>> chris
+>>>>>>> fbfddd8a571c58d4ee3d7636d49d397bdc26d1dc
 
   create_table "cars", force: :cascade do |t|
     t.string "name"
@@ -37,6 +66,19 @@ ActiveRecord::Schema.define(version: 20180814054642) do
     t.datetime "updated_at", null: false
     t.string "status", default: "Available"
   end
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> Thilina
+=======
+>>>>>>> mehmed
+=======
+>>>>>>> Connor
+=======
+>>>>>>> chris
+>>>>>>> fbfddd8a571c58d4ee3d7636d49d397bdc26d1dc
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -55,10 +97,43 @@ ActiveRecord::Schema.define(version: 20180814054642) do
     t.string "uid"
     t.string "first_name"
     t.string "last_name"
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> Thilina
+=======
+>>>>>>> mehmed
+=======
+>>>>>>> Connor
+=======
+>>>>>>> chris
+>>>>>>> fbfddd8a571c58d4ee3d7636d49d397bdc26d1dc
     t.float "lattitude"
     t.float "latitude"
     t.float "longitude"
     t.string "ip"
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> MeryemKoken
+=======
+>>>>>>> Thilina
+=======
+>>>>>>> mehmed
+=======
+>>>>>>> Connor
+=======
+>>>>>>> chris
+>>>>>>> fbfddd8a571c58d4ee3d7636d49d397bdc26d1dc
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
