@@ -24,7 +24,7 @@
         <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
             <ul class="nav navbar-nav navbar-right">
-               <li> <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> </li>
+               <li> <%= link_to 'My Profile', edit_user_registration_path, :class => 'navbar-link' %> </li>
                <li> <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
             </ul>
             
@@ -33,17 +33,15 @@
             </a>
             
              <ul class="nav navbar-nav navbar-left">
+               <li> <%= link_to 'Home', root_path, :class => 'navbar-link' %> </li>
                <li> <%= link_to 'Available Cars', cars_path, :class => 'navbar-link' %> </li>
+               <li> <%= link_to 'Make Booking', new_booking_path, :class => 'navbar-link' %> </li>
+               <li> <%= link_to 'Previous Bookings', bookings_path, :class => 'navbar-link' %> </li>
+                
             </ul>
           </div>
       </nav>
            
-                Logged in as <strong><%= current_user.email%></strong>. |
-                current ip is <strong><%= current_user.current_sign_in_ip%></strong>. 
-                current set test ip is <strong><%= current_user.ip%></strong>. 
-                current longitude is <strong><%= current_user.longitude%></strong>.
-                current latitude is <strong><%= current_user.latitude%></strong>.
-                
             <% else %>
       
       <nav class="navbar navbar-default">
