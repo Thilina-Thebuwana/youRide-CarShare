@@ -4,7 +4,7 @@ class CarsController < ApplicationController
   # GET /cars
   # GET /cars.json
  def index
-    @cars = Car.all
+    @cars = Car.where(:status => "Available")
     @hash = Gmaps4rails.build_markers(@cars) do |car, marker|
     marker.lat car.latitude
     marker.lng car.longitude

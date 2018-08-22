@@ -30,6 +30,7 @@ class BookingsController < ApplicationController
 
     respond_to do |format|
       if @booking.save
+        @booking.car.update(status: "Unavailable")  
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
         format.json { render :show, status: :created, location: @booking }
       else
