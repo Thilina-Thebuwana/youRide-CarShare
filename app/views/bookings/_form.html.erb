@@ -1,3 +1,5 @@
+  <div class="panel-body" >
+
 <%= form_with(model: booking, local: true) do |form| %>
   <% if booking.errors.any? %>
     <div id="error_explanation">
@@ -11,24 +13,26 @@
     </div>
   <% end %>
 
- 
 
-  <div class="field">
-    <%= form.label :car_id %>
-    <%= form.collection_select(:car_id, Car.all, :id, :name ) %>
+  <div class="form-group">
+    <label><%= form.label :car_id %></label>
+    <%= form.collection_select(:car_id, Car.where(:status => "Available"), :id, :name )%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :start_time %>
-    <%= form.datetime_select :start_time, id: :booking_start_time %>
+    <%= form.time_select :start_time, id: :booking_start_time , class: "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :end_time %>
-    <%= form.datetime_select :end_time, id: :booking_end_time %>
+    <%= form.time_select :end_time, id: :booking_end_time %>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
+
+
 <% end %>
+</div>
