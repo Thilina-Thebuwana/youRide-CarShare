@@ -4,7 +4,7 @@ class BookingsController < ApplicationController
   # GET /bookings
   # GET /bookings.json
   def index
-    @bookings = Booking.all
+    @bookings = Booking.where(:user_id => current_user.id)
   end
 
   # GET /bookings/1
@@ -30,6 +30,8 @@ class BookingsController < ApplicationController
 
     respond_to do |format|
       if @booking.save
+        @booking.car.update(status: "Unavailable")
+        ResetCarAvailabilityJob.set(wait_until: @booking.end_time).perform_later(@booking.car)
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
         format.json { render :show, status: :created, location: @booking }
       else

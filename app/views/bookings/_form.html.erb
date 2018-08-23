@@ -1,3 +1,5 @@
+<%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %>
+<div class="panel-body" >
 <%= form_with(model: booking, local: true) do |form| %>
   <% if booking.errors.any? %>
     <div id="error_explanation">
@@ -11,24 +13,34 @@
     </div>
   <% end %>
 
- 
-
-  <div class="field">
-    <%= form.label :car_id %>
-    <%= form.collection_select(:car_id, Car.all, :id, :name ) %>
+ <div class="panel-body" >
+  <div class="form-group">
+    <label><%= form.label :car_id %></label>
+       <div class="col-md-0">
+    <%= form.collection_select(:car_id, Car.where(:status => "Available"), :id, :name )%>
+      </div>
   </div>
 
-  <div class="field">
-    <%= form.label :start_time %>
-    <%= form.datetime_select :start_time, id: :booking_start_time %>
+  <div class="form-group">
+      <label> <%= form.label :start_time %></label>
+      <div class="col-md-0">
+    <%= form.time_select :start_time, id: :booking_start_time , class: "form-control" %>
+      </div>
   </div>
 
   <div class="field">
     <%= form.label :end_time %>
-    <%= form.datetime_select :end_time, id: :booking_end_time %>
+       <div class="col-md-0">
+    <%= form.time_select :end_time, id: :booking_end_time %>
+      </div>
   </div>
 
-  <div class="actions">
+  
     <%= form.submit %>
-  </div>
+
+      </div>
+
+
 <% end %>
+</div>
+
