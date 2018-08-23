@@ -1,23 +1,23 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  make: MyString
-  model: MyString
-  number_plate: MyString
-  color: MyString
-  seat_count: MyString
-  current_address: MyString
-  latitude: MyString
-  longitude: MyString
+  name: George
+  make: Toyota
+  model: prius
+  number_plate: OLD267
+  color: Red
+  seat_count: 2
+  current_address: 216, Lonsdale Street, Melbourne
+  latitude: -31.232123
+  longitude: 141.23243
 
 two:
-  name: MyString
-  make: MyString
-  model: MyString
-  number_plate: MyString
-  color: MyString
-  seat_count: MyString
-  current_address: MyString
-  latitude: MyString
-  longitude: MyString
+  name: Chris
+  make: Hyundai
+  model: santa fei
+  number_plate: NEW256
+  color: Silver
+  seat_count: 4
+  current_address: 213 Grattan St, Melbourne
+  latitude: -31.23432
+  longitude: 141.2323
