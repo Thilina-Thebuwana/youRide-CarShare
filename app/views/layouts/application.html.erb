@@ -59,6 +59,7 @@
             </a>
             
              <ul class="nav navbar-nav navbar-left">
+                <li> <%= link_to 'Home', root_path, :class => 'navbar-link' %> </li>
                <li> <%= link_to 'Available Cars', cars_path, :class => 'navbar-link' %> </li>
             </ul>
         </div>
@@ -66,10 +67,10 @@
             <% end %>
 </p>
        
-      
-    <%= yield %>
-      <p class="notice"><%= notice %></p>
+       <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
+    <%= yield %>
+     
       
   </body>
 </html>

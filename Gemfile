@@ -58,9 +58,13 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   gem 'guard-rspec'
 >>>>>>> Connor
+=======
+  gem 'guard-rspec'
+>>>>>>> mehmed
 end
 
 group :development do

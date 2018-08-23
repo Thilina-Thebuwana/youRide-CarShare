@@ -1,7 +1,11 @@
 
 
 <% if user_signed_in? %>
+<<<<<<< HEAD
     <%= image_tag("youRide logo-wsymbol.png", :size => "250x250", :class => "center-block") %>
+=======
+    <%= image_tag("youRide logo-wsymbol.png", :size => "250x250", :class => "left-block") %>
+>>>>>>> mehmed
 
     <%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %> 
 
@@ -21,8 +25,12 @@
 
 <landing-text><h1>Melbourne's premier car sharing service</h1></landing-text>
 
+<<<<<<< HEAD
 <div id = "row-fluid">
    <div id = "button-center"> <%= link_to '<button type="button" class ="btn btn-default">Login</button>'.html_safe, new_user_session_path %></div>
    <div id = "button-center"> <%= link_to '<button type="button" class ="btn btn-default">Sign Up</button>'.html_safe, new_user_registration_path %></div>
 </div>
+=======
+
+>>>>>>> mehmed
 <% end %>
