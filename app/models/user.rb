@@ -1,10 +1,7 @@
 class User < ApplicationRecord
     validates :email, uniqueness: true
-<<<<<<< HEAD
-=======
     validates :first_name, presence: true
     validates :last_name, presence: true
->>>>>>> mehmed
     has_many :bookings
     
   # Include default devise modules. Others available are:
