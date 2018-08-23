@@ -57,6 +57,10 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+<<<<<<< HEAD
+=======
+  gem 'guard-rspec'
+>>>>>>> Connor
 end
 
 group :development do

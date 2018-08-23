@@ -61,6 +61,10 @@ GEM
       xpath (>= 2.0, < 4.0)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
+<<<<<<< HEAD
+=======
+    coderay (1.1.2)
+>>>>>>> Connor
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -89,10 +93,31 @@ GEM
     faraday (0.12.2)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.25-x86-mingw32)
+<<<<<<< HEAD
+=======
+    formatador (0.2.5)
+>>>>>>> Connor
     geocoder (1.5.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     gmaps4rails (2.1.2)
+<<<<<<< HEAD
+=======
+    guard (2.14.2)
+      formatador (>= 0.2.4)
+      listen (>= 2.7, < 4.0)
+      lumberjack (>= 1.0.12, < 2.0)
+      nenv (~> 0.1)
+      notiffany (~> 0.0)
+      pry (>= 0.9.12)
+      shellany (~> 0.0)
+      thor (>= 0.18.1)
+    guard-compat (1.2.1)
+    guard-rspec (4.7.3)
+      guard (~> 2.1)
+      guard-compat (~> 1.1)
+      rspec (>= 2.99.0, < 4.0)
+>>>>>>> Connor
     hashie (3.5.7)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
@@ -100,9 +125,20 @@ GEM
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
     jwt (1.5.6)
+<<<<<<< HEAD
     loofah (2.2.2)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
+=======
+    listen (3.1.5)
+      rb-fsevent (~> 0.9, >= 0.9.4)
+      rb-inotify (~> 0.9, >= 0.9.7)
+      ruby_dep (~> 1.2)
+    loofah (2.2.2)
+      crass (~> 1.0.2)
+      nokogiri (>= 1.5.9)
+    lumberjack (1.0.13)
+>>>>>>> Connor
     mail (2.7.0)
       mini_mime (>= 0.1.1)
     method_source (0.9.0)
@@ -112,9 +148,19 @@ GEM
     multi_json (1.13.1)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
+<<<<<<< HEAD
     nio4r (2.3.1)
     nokogiri (1.8.4-x86-mingw32)
       mini_portile2 (~> 2.3.0)
+=======
+    nenv (0.3.0)
+    nio4r (2.3.1)
+    nokogiri (1.8.4-x86-mingw32)
+      mini_portile2 (~> 2.3.0)
+    notiffany (0.1.1)
+      nenv (~> 0.1)
+      shellany (~> 0.0)
+>>>>>>> Connor
     oauth2 (1.4.0)
       faraday (>= 0.8, < 0.13)
       jwt (~> 1.0)
@@ -135,6 +181,12 @@ GEM
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
     pg (0.21.0-x86-mingw32)
+<<<<<<< HEAD
+=======
+    pry (0.11.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
+>>>>>>> Connor
     public_suffix (3.0.2)
     puma (3.12.0)
     rack (2.0.5)
@@ -170,6 +222,13 @@ GEM
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
+<<<<<<< HEAD
+=======
+    rspec (3.8.0)
+      rspec-core (~> 3.8.0)
+      rspec-expectations (~> 3.8.0)
+      rspec-mocks (~> 3.8.0)
+>>>>>>> Connor
     rspec-core (3.8.0)
       rspec-support (~> 3.8.0)
     rspec-expectations (3.8.1)
@@ -187,6 +246,10 @@ GEM
       rspec-mocks (~> 3.8.0)
       rspec-support (~> 3.8.0)
     rspec-support (3.8.0)
+<<<<<<< HEAD
+=======
+    ruby_dep (1.5.0)
+>>>>>>> Connor
     rubyzip (1.2.1)
     sass (3.5.7)
       sass-listen (~> 4.0.0)
@@ -202,6 +265,10 @@ GEM
     selenium-webdriver (3.14.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2)
+<<<<<<< HEAD
+=======
+    shellany (0.0.1)
+>>>>>>> Connor
     sprockets (3.7.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -250,6 +317,10 @@ DEPENDENCIES
   factory_girl_rails
   geocoder
   gmaps4rails
+<<<<<<< HEAD
+=======
+  guard-rspec
+>>>>>>> Connor
   jbuilder (~> 2.5)
   omniauth
   omniauth-facebook
