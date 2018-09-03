@@ -44,12 +44,29 @@
 <br>
 
 
+<div id='userInfo'></div>
 
 <div style='width: 800px;'>
   <div id="map" style='width: 800px; height: 400px;'></div>
 </div>
 
 <script type = "text/javascript">
+    x = document.getElementById('userInfo');
+    
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser";
+        }
+    }
+    
+    function showPosition(position) {
+        const userLat =  position.coords.latitude;
+        const userLng =  position.coords.longitude;
+       // x.innerHTML = "Latitiude: " + userLat +
+          //  "<br>Longitude: " + userLng;
+        
     handler = Gmaps.build('Google');
 handler.buildMap({
     provider: {
@@ -61,11 +78,30 @@ handler.buildMap({
     }
   },
   function(){
-    markers = handler.addMarkers(<%=raw @hash.to_json %>);
+    const markersArr = <%= raw @hash.to_json %>;
+    const carDistancesFromUser = markersArr.map(c => {
+        return google.maps.geometry.spherical.computeDistanceBetween(
+            new google.maps.LatLng(userLat, userLng),
+            new google.maps.LatLng(c.lat, c.lng)
+        )
+    });
+    const closestDistance = Math.min(...carDistancesFromUser);
+    const closestCar = markersArr[carDistancesFromUser.indexOf(closestDistance)]
+    x.innerHTML = "<h1>Closest Car to you is " + closestCar.infowindow.toUpperCase() + " at " + (closestDistance/1000).toFixed(2) + "km away</h1>"
+    console.log('closessssss', closestCar)
+    markersArr.push({lat: userLat, lng: userLng, infowindow: 'User'});
+    markers = handler.addMarkers(markersArr);
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
   }
-);
+);        
+    }
+    
+    getLocation();
+    
+    
+
+    
 </script>
 
     

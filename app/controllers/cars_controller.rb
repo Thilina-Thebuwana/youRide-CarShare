@@ -6,10 +6,20 @@ class CarsController < ApplicationController
  def index
     @cars = Car.where(:status => "Available")
     @hash = Gmaps4rails.build_markers(@cars) do |car, marker|
-    marker.lat car.latitude
-    marker.lng car.longitude
-    marker.infowindow car.name
-    end  
+        marker.lat car.latitude
+        marker.lng car.longitude
+        marker.infowindow car.name
+    end
+     
+     puts @hash.class
+     
+#     if current_user
+#         @hash = JSON.parse(@hash.to_json).push({
+#             lat: current_user.latitude,
+#             lng: current_user.longitude,
+#             infowindow: current_user.first_name || 'User'
+#             })
+#     end
   end
 
 
