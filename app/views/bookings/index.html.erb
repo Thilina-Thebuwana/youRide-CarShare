@@ -1,15 +1,15 @@
-
+<%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %>
 <p id="notice"><%= notice %></p>
 
 
 
 <% if user_signed_in? %>
+<text>
 
-    <div class = "jumbotron">
+    
 
         <h1 class="display-3">My Previous Bookings</h1>
-        
-    
+   
 
     <table class = "table">
     <thead>
@@ -34,8 +34,8 @@
         <% end %>
     </tbody>
     </table>
-<%= link_to 'New Booking', new_booking_path %>
-</div>
+<%= link_to 'New Booking',  new_booking_path %>
+</text>
 
 <% else %>
 

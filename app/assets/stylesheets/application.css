@@ -60,6 +60,13 @@ background-size: cover;
     margin-top: 100px;
  }
 
+.left-block {
+    display: block;
+    margin-left: 20%;
+    margin-right: auto;
+    margin-top: 15%;
+ }
+
 landing-text {
     color: white;
     text-align: center;
@@ -99,5 +106,15 @@ z-index: -1;
 #button-center{
      text-align:center;
      margin: 10px;
+}
+
+#button-inline{
+    position: absolute;
+    right: 30%;
+    top: 50%;
+}
+
+text{
+    color: white;
 }
 
