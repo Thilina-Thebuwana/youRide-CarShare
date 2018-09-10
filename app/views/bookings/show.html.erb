@@ -1,5 +1,6 @@
+<%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %>
 <p id="notice"><%= notice %></p>
-
+<text>
 <h1>Your Booking</h1>
 <table class="table table-condensed">
     <thead>
@@ -26,7 +27,5 @@
   
 
 
-<%= link_to 'Edit', edit_booking_path(@booking) %> |
 <%= link_to 'Back', bookings_path %>
-
-
+</text>

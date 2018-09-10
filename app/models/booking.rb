@@ -1,6 +1,8 @@
 class Booking < ApplicationRecord
   validate :bookings_must_not_overlap
-  
+  validates :start_time, presence: true
+  validates :end_time, presence: true
+  validates :car_id, presence: true
   belongs_to :user
   belongs_to :car
     

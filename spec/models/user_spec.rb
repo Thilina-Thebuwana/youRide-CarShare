@@ -17,11 +17,6 @@ RSpec.describe User, type: :model do
           expect(user).to eq(false)
       end 
       
-        it 'should save successfully' do 
-            user = User.new(first_name: "First", last_name: "Last", email: "email@gmail.com", longitude: "141.12121", latitude: "-31.13131", password: "Password123", password_confirmation: "Pasword123").save
-          expect(user).to eq(true)
-      end 
-      
 
   end 
     
