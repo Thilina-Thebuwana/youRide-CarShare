@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 require "application_system_test_case"
 
 class BookingsTest < ApplicationSystemTestCase
@@ -9,6 +10,8 @@ class BookingsTest < ApplicationSystemTestCase
   # end
 end
 =======
+=======
+>>>>>>> mehmed
 require "application_system_test_case"
 
 class BookingsTest < ApplicationSystemTestCase
@@ -18,4 +21,7 @@ class BookingsTest < ApplicationSystemTestCase
      assert_selector "h1", text: "Booking"
   # end
 end
+<<<<<<< HEAD
 >>>>>>> Connor
+=======
+>>>>>>> mehmed

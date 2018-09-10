@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 require 'test_helper'
 
 class BookingTest < ActiveSupport::TestCase
@@ -22,6 +23,8 @@ class BookingTest < ActiveSupport::TestCase
   # end
 end
 =======
+=======
+>>>>>>> mehmed
 require 'test_helper'
 
 class BookingTest < ActiveSupport::TestCase
@@ -44,4 +47,7 @@ class BookingTest < ActiveSupport::TestCase
     
   # end
 end
+<<<<<<< HEAD
 >>>>>>> Connor
+=======
+>>>>>>> mehmed

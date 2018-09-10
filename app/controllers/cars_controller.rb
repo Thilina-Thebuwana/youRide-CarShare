@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 class CarsController < ApplicationController
   before_action :set_car, only: [:show, :edit, :update, :destroy]
 
@@ -90,6 +91,8 @@ class CarsController < ApplicationController
     end
 end
 =======
+=======
+>>>>>>> mehmed
 class CarsController < ApplicationController
   before_action :set_car, only: [:show, :edit, :update, :destroy]
 
@@ -180,4 +183,7 @@ class CarsController < ApplicationController
       params.require(:car).permit(:name, :make, :model, :number_plate, :color, :seat_count, :current_address, :latitude, :longitude, :status)
     end
 end
+<<<<<<< HEAD
 >>>>>>> Connor
+=======
+>>>>>>> mehmed

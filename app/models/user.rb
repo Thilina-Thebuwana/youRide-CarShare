@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 class User < ApplicationRecord
     validates :email, uniqueness: true
     validates :first_name, presence: true
@@ -22,6 +23,8 @@ class User < ApplicationRecord
      end
   end
 =======
+=======
+>>>>>>> mehmed
 class User < ApplicationRecord
     validates :email, uniqueness: true
     validates :first_name, presence: true
@@ -44,5 +47,8 @@ class User < ApplicationRecord
        user.firstname = auth.info.firstname
      end
   end
+<<<<<<< HEAD
 >>>>>>> Connor
+=======
+>>>>>>> mehmed
 end

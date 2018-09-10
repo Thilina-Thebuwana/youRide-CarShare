@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 class Booking < ApplicationRecord
   validate :bookings_must_not_overlap
   validates :start_time, presence: true
@@ -26,6 +27,8 @@ end
    
 end
 =======
+=======
+>>>>>>> mehmed
 class Booking < ApplicationRecord
   validate :bookings_must_not_overlap
   validates :start_time, presence: true
@@ -52,4 +55,7 @@ end
     
    
 end
+<<<<<<< HEAD
 >>>>>>> Connor
+=======
+>>>>>>> mehmed

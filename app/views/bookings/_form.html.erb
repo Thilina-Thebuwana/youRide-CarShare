@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %>
 <div class="panel-body" >
 <%= form_with(model: booking, local: true) do |form| %>
@@ -46,6 +47,8 @@
 </div>
 
 =======
+=======
+>>>>>>> mehmed
 <%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %>
 
 <%= form_with(model: booking, local: true) do |form| %>
@@ -63,7 +66,11 @@
 
  <div class="panel-body" >
   <div class="form-group">
+<<<<<<< HEAD
     <label><%= form.label :car_id %></label>
+=======
+      <text> <label><%= form.label :car_id %></label></text>
+>>>>>>> mehmed
        <div class="col-md-0">
          <div id = "car_name">
     <%= form.collection_select(:car_id, Car.where(:status => "Available"), :id, :name, {:id => 'car_name'} )%>
@@ -72,14 +79,22 @@
 </div>
 
   <div class="form-group">
+<<<<<<< HEAD
       <label> <%= form.label :start_time %></label>
+=======
+      <text><label> <%= form.label :start_time %></label></text>
+>>>>>>> mehmed
       <div class="col-md-0">
     <%= form.time_select :start_time, id: :booking_start_time , class: "form-control" %>
       </div>
   </div>
 
   <div class="field">
+<<<<<<< HEAD
     <%= form.label :end_time %>
+=======
+    <text><label><%= form.label :end_time %></label></text>
+>>>>>>> mehmed
        <div class="col-md-0">
     <%= form.time_select :end_time, id: :booking_end_time %>
       </div>
@@ -94,4 +109,7 @@
 <% end %>
 
 
+<<<<<<< HEAD
 >>>>>>> Connor
+=======
+>>>>>>> mehmed
