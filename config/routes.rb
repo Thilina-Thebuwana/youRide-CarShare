@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :bookings
   resources :cars
-  root 'home#index'
+  root 'cars#index'
 
    devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" ,  registrations: 'reigistrations'}
    
