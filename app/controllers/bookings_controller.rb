@@ -109,6 +109,8 @@ class BookingsController < ApplicationController
   # POST /bookings.json
   def create
     params[:booking][:user_id]= current_user.id
+    params[:booking][:start_time]= DateTime.now + 15.minutes
+    params[:booking][:end_time]= DateTime.now + (15 + params[:post][:end_time].to_i).minutes
     @booking = Booking.new(booking_params)
 
 
