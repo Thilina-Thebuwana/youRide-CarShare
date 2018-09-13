@@ -1,5 +1,6 @@
 class CarsController < ApplicationController
   before_action :set_car, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_admin, except: [:index,:show]
 
   # GET /cars
   # GET /cars.json
@@ -10,7 +11,7 @@ class CarsController < ApplicationController
         marker.lng car.longitude
         marker.infowindow car.name
     end
-     
+     @admincars = Car.all
      puts @hash.class
      
 #     if current_user
