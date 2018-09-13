@@ -48,6 +48,7 @@ gem 'omniauth-google-oauth2'
 gem 'geocoder'
 gem 'gmaps4rails'
 gem 'bootstrap_form'
+gem "paperclip", "~> 6.0.0"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
