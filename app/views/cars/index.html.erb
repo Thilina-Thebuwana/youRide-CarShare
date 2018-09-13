@@ -1,17 +1,136 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> chris
 <script
   src="https://code.jquery.com/jquery-1.12.4.min.js"
   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
   crossorigin="anonymous"></script>
+<<<<<<< HEAD
 >>>>>>> Thilina
+=======
+>>>>>>> chris
 
-<p id="notice"><%= notice %></p>
 
+<<<<<<< HEAD
  <% if user_signed_in? %>
 
+ <%= image_tag("youRide logo-wsymbol.png", :size => "250x250", :class => "left-block") %>
+
+    <%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %> 
+
+    <div id = "button-inline">
+        <div id = "button-center"> <%= link_to '<button type="button" class ="btn btn-default">Avaliable Cars</button>'.html_safe, cars_path %></div>
+        
+        <div id = "button-center"> <%= link_to '<button type="button" class ="btn btn-default">Make Booking</button>'.html_safe, new_booking_path %></div>
+            
+        <div id = "button-center"> <%= link_to '<button type="button" class ="btn btn-default">Previous Bookings</button>'.html_safe, bookings_path %></div>
+        
+</div>
+<text>
+        <text>
+ 
+
+ <div id="container">
+
+        <div id="sidebar">
+            <ul>
+                <li>
+                    <a>
+                        <div style="text-align:center;vertical-align:middle;height:100%;">
+                            <button type="button" class="btn btn-default" id="cars" href="#" style="position: absolute; top: 90% ;">Go To Maps</button>
+                        </div>
+                    </a>
+                 </li>
+            </ul>
+    </div>
+=======
+
+ <% if user_signed_in? %>
+      <% if current_user.try(:admin?) %>
+  <%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %> 
+
+<text>
+        <h1 class="display-3">All Cars</h1>
+    
+>>>>>>> chris
+
+    
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+  
+<h1 class="display-3">Available Cars</h1>
+    
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Make</th>
+      <th>Model</th>
+      <th>Number plate</th>
+      <th>Color</th>
+      <th>Seat count</th>
+      <th>Current address</th>
+      <th>status</th>
+
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admincars.each do |car| %>
+      <tr>
+        <td><%= car.name %></td>
+        <td><%= car.make %></td>
+        <td><%= car.model %></td>
+        <td><%= car.number_plate %></td>
+        <td><%= car.color %></td>
+        <td><%= car.seat_count %></td>
+        <td><%= car.current_address %></td>
+        <td><%= car.status %></td>
+<<<<<<< HEAD
+        <td><%= link_to 'Show', car %></td>
+=======
+        <td><%= link_to 'More Info', car %></td>
+>>>>>>> chris
+        <td><%= link_to 'Edit', edit_car_path(car) %></td>
+        <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+    </div>
+</text>
+<<<<<<< HEAD
+=======
+
+<!--
+        <%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %> 
+
+        <%= image_tag("youRide logo-wsymbol.png", :size => "250x250", :class => "center-block") %>
+
+        <landing-text><h1>Admin Section</h1></landing-text>
+<text>
+    <div id = "button-inline">
+        <div id = "button-center"> <%= link_to '<button type="button" class ="btn btn-default">Avaliable Cars</button>'.html_safe, cars_path %></div>
+        
+        <div id = "button-center"> <%= link_to '<button type="button" class ="btn btn-default">Make Booking</button>'.html_safe, new_booking_path %></div>
+            
+        <div id = "button-center"> <%= link_to '<button type="button" class ="btn btn-default">Previous Bookings</button>'.html_safe, bookings_path %></div>
+        
+</div>
+<text>
+        <text>
+ 
+-->
+
+ 
+
+<% else  %>
  <%= image_tag("youRide logo-wsymbol.png", :size => "250x250", :class => "left-block") %>
 
     <%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %> 
@@ -76,15 +195,14 @@
         <td><%= car.seat_count %></td>
         <td><%= car.current_address %></td>
         <td><%= car.status %></td>
-        <td><%= link_to 'Show', car %></td>
-        <td><%= link_to 'Edit', edit_car_path(car) %></td>
-        <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <td><%= link_to 'More Info', car %></td>
+       
     <% end %>
   </tbody>
 </table>
     </div>
 </text>
+>>>>>>> chris
    
 <br>
 
@@ -95,10 +213,17 @@
 
   <div id="map" style='width: 168.5%; height: 400px;'></div>
 </div>
+<<<<<<< HEAD
 
 
 
 
+=======
+
+
+<%end%>
+
+>>>>>>> chris
 <% else %>
 
 <%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %>
@@ -157,9 +282,14 @@
         <td><%= car.seat_count %></td>
         <td><%= car.current_address %></td>
        <td><%= car.status %></td>
+<<<<<<< HEAD
         <td><%= link_to 'Show', car %></td>
         <td><%= link_to 'Edit', edit_car_path(car) %></td>
         <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+=======
+        <td><%= link_to 'More Info', car %></td>
+       
+>>>>>>> chris
       </tr>
     <% end %>
   </tbody>
@@ -224,10 +354,14 @@ handler.buildMap({
     const closestDistance = Math.min(...carDistancesFromUser);
     const closestCar = markersArr[carDistancesFromUser.indexOf(closestDistance)]
 <<<<<<< HEAD
+<<<<<<< HEAD
     x.innerHTML = "<h1>Closest Car to you is " + closestCar.infowindow.toUpperCase() + " at " + (closestDistance/1000).toFixed(2) + "km away</h1>"
 =======
     x.innerHTML = "<text><h1>Closest Car to you is " + closestCar.infowindow.toUpperCase() + " at " + (closestDistance/1000).toFixed(2) + "km away</h1><text>"
 >>>>>>> Thilina
+=======
+    x.innerHTML = "<text><h1>Closest Car to you is " + closestCar.infowindow.toUpperCase() + " at " + (closestDistance/1000).toFixed(2) + "km away</h1><text>"
+>>>>>>> chris
     markersArr.push({lat: userLat, lng: userLng, infowindow: 'User', picture:{ url: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=|000000|000000' , width:75 , height: 75}});
     markers = handler.addMarkers(markersArr);
     handler.bounds.extendWith(markers);
@@ -257,6 +391,10 @@ handler.buildMap({
     
 </script>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> chris
 
 
 =======

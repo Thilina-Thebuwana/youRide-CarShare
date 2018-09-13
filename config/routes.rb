@@ -10,8 +10,17 @@ Rails.application.routes.draw do
 end
 =======
 Rails.application.routes.draw do
+ 
+
+  get 'users/index' => 'users#index', :as => 'allusers'
+
+
   resources :bookings
   resources :cars
+<<<<<<< HEAD
+=======
+  resources :admins
+>>>>>>> chris
   root 'cars#index'
 
    devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" ,  registrations: 'reigistrations'}
