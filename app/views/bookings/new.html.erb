@@ -1,5 +1,19 @@
-<text><h1>New Booking</h1></text>
-<text>*Booking will start 15 minutes from time of creation*</text>
-<%= render 'form', booking: @booking %>
+<% if user_signed_in? %>
+      <% if current_user.try(:admin?) %>
+        <text><h1>New Booking</h1></text>
+        <text>*Booking will start 15 minutes from time of creation*</text>
+        <%= render 'form', booking: @booking %>
 
-<text><%= link_to 'Back', bookings_path %></text>
+        <text><%= link_to 'Back', bookings_path %></text>
+        
+        <% else %>
+        <text><h1>New Booking</h1></text>
+        <text>*Booking will start 15 minutes from time of creation*</text>
+        <%= render 'form', booking: @booking %>
+
+        <text><%= link_to 'Back', bookings_path %></text>
+        <%end%>
+        
+<%else%>
+
+<%end%>

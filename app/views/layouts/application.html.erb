@@ -16,7 +16,30 @@
   <body>
        
  <% if user_signed_in? %>
-      <nav class="navbar navbar-default">
+      <% if current_user.try(:admin?) %>
+        <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+            <ul class="nav navbar-nav navbar-right">
+               <li> <%= link_to 'My Profile', edit_user_registration_path, :class => 'navbar-link' %> </li>
+               <li> <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+            </ul>
+            
+            <a class="navbar-brand">
+                <%= image_tag("youRide logo-black (1).png", :size => "120x30" , :link => root_path) %>
+            </a>
+            
+             <ul class="nav navbar-nav navbar-left">
+               <li> <%= link_to 'All Cars', root_path, :class => 'navbar-link' %> </li>
+               <li> <%= link_to 'All Bookings', bookings_path, :class => 'navbar-link' %> </li>
+               <li> <%= link_to 'All Users', allusers_path, :class => 'navbar-link' %> </li>
+               <li> <%= link_to 'New Car', new_car_path, :class => 'navbar-link' %> </li>
+                
+            </ul>
+          </div>
+      </nav>
+           <% else  %>
+             <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
             <ul class="nav navbar-nav navbar-right">
@@ -36,10 +59,10 @@
             </ul>
           </div>
       </nav>
-           
+      <%end %>
             <% else %>
       
-      <nav class="navbar navbar-default">
+      <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <ul class="nav navbar-nav navbar-right">
         <!-- Brand and toggle get grouped for better mobile display -->

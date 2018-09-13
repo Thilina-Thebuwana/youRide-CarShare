@@ -1,5 +1,6 @@
 class CarsController < ApplicationController
   before_action :set_car, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_admin, except: [:index,:show]
 
   # GET /cars
   # GET /cars.json
@@ -10,7 +11,7 @@ class CarsController < ApplicationController
         marker.lng car.longitude
         marker.infowindow car.name
     end
-     
+     @admincars = Car.all
      puts @hash.class
      
 #     if current_user
@@ -85,6 +86,6 @@ class CarsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def car_params
-      params.require(:car).permit(:name, :make, :model, :number_plate, :color, :seat_count, :current_address, :latitude, :longitude, :status)
+      params.require(:car).permit(:name, :make, :model, :number_plate, :color, :seat_count, :current_address, :latitude, :longitude, :status, :image)
     end
 end
