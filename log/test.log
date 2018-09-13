@@ -2059,8 +2059,6 @@ Completed 200 OK in 494ms (Views: 485.0ms | ActiveRecord: 0.0ms)
   [1m[36mUser Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "email@gmail.com"], ["LIMIT", 1]]
   [1m[35m (1.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
   [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
-<<<<<<< HEAD
-=======
   [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
   [1m[35m (1.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
@@ -2445,9 +2443,6 @@ BookingTest: test_End_Time_prescence_Validation_should_trigger
   [1m[36mCar Load (1.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
   [1m[35m (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
   [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
-<<<<<<< HEAD
->>>>>>> chris
-=======
   [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
 Started GET "/bookings/new" for 127.0.0.1 at 2018-09-06 18:18:41 +1000
@@ -3605,4 +3600,3 @@ Completed 200 OK in 23ms (Views: 19.9ms | ActiveRecord: 0.0ms)
   [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
   [1m[35m (1.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
   [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
->>>>>>> chris

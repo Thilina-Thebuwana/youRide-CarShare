@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 
 <% if user_signed_in? %>
@@ -24,35 +22,4 @@
 <landing-text><h1>Melbourne's premier car sharing service</h1></landing-text>
 
 
-=======
-=======
->>>>>>> mehmed
-
-
-<% if user_signed_in? %>
-    <%= image_tag("youRide logo-wsymbol.png", :size => "250x250", :class => "left-block") %>
-
-    <%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %> 
-
-    <div id = "button-inline">
-        <div id = "button-center"> <%= link_to '<button type="button" class ="btn btn-default">Avaliable Cars</button>'.html_safe, cars_path %></div>
-        
-        <div id = "button-center"> <%= link_to '<button type="button" class ="btn btn-default">Make Booking</button>'.html_safe, new_booking_path %></div>
-            
-        <div id = "button-center"> <%= link_to '<button type="button" class ="btn btn-default">Previous Bookings</button>'.html_safe, bookings_path %></div>
-        
-</div>
-<% else %>
-
-<%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %>
-
- <%= image_tag("youRide logo-wsymbol.png", :size => "250x250", :class => "center-block") %>
-
-<landing-text><h1>Melbourne's premier car sharing service</h1></landing-text>
-
-
-<<<<<<< HEAD
->>>>>>> Connor
-=======
->>>>>>> mehmed
 <% end %>

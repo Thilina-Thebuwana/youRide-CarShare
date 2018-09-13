@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
-  
- 
-protected
- 
-
-end
-=======
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
@@ -22,4 +12,3 @@ protected
  
 
 end
->>>>>>> chris
