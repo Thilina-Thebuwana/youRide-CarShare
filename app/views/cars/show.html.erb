@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p id="notice"><%= notice %></p>
     <% if user_signed_in? %>
         <% if current_user.try(:admin?) %>
@@ -156,3 +157,172 @@
 
 <%end%>
 
+=======
+<style>
+body {margin:25px;}
+
+div.polaroid {
+ 
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+}
+
+div.container {
+  text-align: center;
+  padding: 10px 20px;
+}
+</style>
+<%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %>
+<text>
+<p id="notice"><%= notice %></p>
+    <% if user_signed_in? %>
+        <% if current_user.try(:admin?) %>
+            <p>
+                <strong>Name:</strong>
+                    <%= @car.name %>
+            </p>
+
+            <p>
+                <strong>Make:</strong>
+                    <%= @car.make %>
+            </p>
+
+            <p>
+                <strong>Model:</strong>
+                    <%= @car.model %>
+            </p>
+
+            <p>
+                <strong>Number plate:</strong>
+                    <%= @car.number_plate %>
+            </p>
+
+            <p>
+                <strong>Color:</strong>
+                    <%= @car.color %>
+            </p>
+
+            <p>
+                <strong>Seat count:</strong>
+                    <%= @car.seat_count %>
+            </p>
+
+            <p>
+                <strong>Current address:</strong>
+                    <%= @car.current_address %>
+            </p>
+
+            <p>
+                <strong>Latitude:</strong>
+                    <%= @car.latitude %>
+            </p>
+
+            <p>
+                <strong>Longitude:</strong>
+                    <%= @car.longitude %>
+            </p>
+
+            <p>
+                <strong>Longitude:</strong>
+                    <%= @car.status %>
+            </p>
+
+                <%= image_tag @car.image.url %>
+
+                <%= link_to 'Edit', edit_car_path(@car) %> |
+                <%= link_to 'Back', cars_path %>
+
+    <%else%>
+             <p>
+                <strong>Name:</strong>
+                    <%= @car.name %>
+            </p>
+
+            <p>
+                <strong>Make:</strong>
+                    <%= @car.make %>
+            </p>
+
+            <p>
+                <strong>Model:</strong>
+                    <%= @car.model %>
+            </p>
+
+            <p>
+                <strong>Number plate:</strong>
+                    <%= @car.number_plate %>
+            </p>
+
+            <p>
+                <strong>Color:</strong>
+                    <%= @car.color %>
+            </p>
+
+            <p>
+                <strong>Seat count:</strong>
+                    <%= @car.seat_count %>
+            </p>
+
+            <p>
+                <strong>Current address:</strong>
+                    <%= @car.current_address %>
+            </p>
+
+
+            <p>
+                <strong>Longitude:</strong>
+                    <%= @car.status %>
+            </p>
+
+                <%= image_tag @car.image.url %>
+
+                <%= link_to 'Edit', edit_car_path(@car) %> |
+                <%= link_to 'Back', cars_path %>
+
+        <%end%>
+
+    <%else%>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Make</th>
+                        <th scope="col">Model</th>
+                        <th scope="col">Number Plate</th>
+                        <th scope="col">Color</th>
+                        <th scope="col">Seat count</th>
+                        <th scope="col">Current Address</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Picture</th>
+                    </tr>
+                </thead>
+          
+         <tbody>
+                <tr>
+                    <td><%= @car.name %></td>
+                    <td><%= @car.make %></td>
+                    <td><%= @car.model %></td>
+                    <td><%= @car.number_plate %></td>
+                    <td><%= @car.color %></td>
+                    <td><%= @car.seat_count %></td>
+                    <td><%= @car.current_address %></td>
+                    <td><%= @car.status %></td>
+                    <td>  <%= image_tag( @car.image.url,  :size => "260x180") %></td>
+                </tr>
+           
+        </tbody>
+    
+            </table>
+    </text>
+           
+
+                 
+
+<%= link_to '<button type="button" class ="btn btn-default">Back</button>'.html_safe, cars_path %>
+               
+
+<%end%>
+
+>>>>>>> Thilina

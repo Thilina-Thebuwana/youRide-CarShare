@@ -18,9 +18,13 @@ Rails.application.routes.draw do
   resources :bookings
   resources :cars
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   resources :admins
 >>>>>>> chris
+=======
+  resources :admins
+>>>>>>> Thilina
   root 'cars#index'
 
    devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" ,  registrations: 'reigistrations'}

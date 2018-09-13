@@ -78,7 +78,11 @@ end
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20180912031229) do
+=======
+ActiveRecord::Schema.define(version: 20180913061319) do
+>>>>>>> Thilina
 
   create_table "bookings", force: :cascade do |t|
     t.integer "user_id"
@@ -104,6 +108,10 @@ ActiveRecord::Schema.define(version: 20180912031229) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "status", default: "Available"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "users", force: :cascade do |t|

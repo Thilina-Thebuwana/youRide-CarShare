@@ -14,14 +14,64 @@
 =======
 >>>>>>> chris
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> Thilina
 
 <<<<<<< HEAD
  <% if user_signed_in? %>
+      <% if current_user.try(:admin?) %>
+  <%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %> 
 
- <%= image_tag("youRide logo-wsymbol.png", :size => "250x250", :class => "left-block") %>
+<text>
+        <h1 class="display-3">All Cars</h1>
+    
 
-    <%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %> 
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Make</th>
+      <th>Model</th>
+      <th>Number plate</th>
+      <th>Color</th>
+      <th>Seat count</th>
+      <th>Current address</th>
+      <th>status</th>
 
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admincars.each do |car| %>
+      <tr>
+        <td><%= car.name %></td>
+        <td><%= car.make %></td>
+        <td><%= car.model %></td>
+        <td><%= car.number_plate %></td>
+        <td><%= car.color %></td>
+        <td><%= car.seat_count %></td>
+        <td><%= car.current_address %></td>
+        <td><%= car.status %></td>
+        <td><%= link_to '<button type="button" class="btn btn-dark"">More Info</button>'.html_safe, car %></td>
+        <td><%= link_to '<button type="button" class="btn btn-dark"">Edit</button>'.html_safe, edit_car_path(car) %></td>
+        <td><%= link_to '<button type="button" class="btn btn-dark"">Reitre</button>'.html_safe, car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+    </div>
+</text>
+
+<!--
+        <%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %> 
+
+        <%= image_tag("youRide logo-wsymbol.png", :size => "250x250", :class => "center-block") %>
+
+        <landing-text><h1>Admin Section</h1></landing-text>
+<text>
     <div id = "button-inline">
         <div id = "button-center"> <%= link_to '<button type="button" class ="btn btn-default">Avaliable Cars</button>'.html_safe, cars_path %></div>
         
@@ -33,6 +83,18 @@
 <text>
         <text>
  
+-->
+
+ 
+
+<% else  %>
+ <%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %>
+
+ <%= image_tag("youRide logo-wsymbol.png", :size => "250x250", :class => "center-block") %>
+
+<landing-text><h1>Melbourne'sds premier car sharing service</h1></landing-text>
+<text>
+ 
 
  <div id="container">
 
@@ -41,7 +103,7 @@
                 <li>
                     <a>
                         <div style="text-align:center;vertical-align:middle;height:100%;">
-                            <button type="button" class="btn btn-default" id="cars" href="#" style="position: absolute; top: 90% ;">Go To Maps</button>
+                            <button type="button" class="btn btn-default" id="cars" href="#" style="position: absolute; top: 90% , left: 80% ;">Check Avaliable Cars</button>
                         </div>
                     </a>
                  </li>
@@ -60,6 +122,7 @@
 
     
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
 
   
 <h1 class="display-3">Available Cars</h1>
@@ -93,6 +156,7 @@
         <td><%= car.current_address %></td>
         <td><%= car.status %></td>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <td><%= link_to 'Show', car %></td>
 =======
         <td><%= link_to 'More Info', car %></td>
@@ -100,6 +164,10 @@
         <td><%= link_to 'Edit', edit_car_path(car) %></td>
         <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+=======
+        <td><%= link_to '<button type="button" class="btn btn-dark"">More Info</button>'.html_safe, car%></td>
+       
+>>>>>>> Thilina
     <% end %>
   </tbody>
 </table>
@@ -216,7 +284,7 @@
 <<<<<<< HEAD
 
 
-
+<%end%>
 
 =======
 
@@ -241,7 +309,7 @@
                 <li>
                     <a>
                         <div style="text-align:center;vertical-align:middle;height:100%;">
-                            <button type="button" class="btn btn-default" id="cars" href="#" style="position: absolute; top: 90% ;">Go To Maps</button>
+                            <button type="button" class="btn btn-default" id="cars" href="#" style="position: absolute; top: 90% , left: 80% ;">Check Avaliable Cars</button>
                         </div>
                     </a>
                  </li>
@@ -283,6 +351,7 @@
         <td><%= car.current_address %></td>
        <td><%= car.status %></td>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <td><%= link_to 'Show', car %></td>
         <td><%= link_to 'Edit', edit_car_path(car) %></td>
         <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -290,6 +359,10 @@
         <td><%= link_to 'More Info', car %></td>
        
 >>>>>>> chris
+=======
+        <td><%= link_to '<button type="button" class="btn btn-dark"">More Info</button>'.html_safe, car %></td>
+       
+>>>>>>> Thilina
       </tr>
     <% end %>
   </tbody>

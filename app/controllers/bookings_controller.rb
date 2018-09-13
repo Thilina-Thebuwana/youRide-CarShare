@@ -91,9 +91,13 @@ class BookingsController < ApplicationController
   def index
     @bookings = Booking.where(:user_id => current_user.id).order('created_at DESC')
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     @admin = Booking.all
 >>>>>>> chris
+=======
+    @admin = Booking.all
+>>>>>>> Thilina
   end
 
   # GET /bookings/1
