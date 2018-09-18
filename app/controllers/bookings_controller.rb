@@ -5,7 +5,8 @@ class BookingsController < ApplicationController
   # GET /bookings
   # GET /bookings.json
   def index
-    @bookings = Booking.where(:user_id => current_user.id).order('created_at DESC')
+    @bookings = Booking.where(:user_id => current_user.id, :paid => false).order('created_at DESC')
+    @bookingspaid = Booking.where(:user_id => current_user.id, :paid => true).order('created_at DESC')
     @admin = Booking.all
   end
 
@@ -29,6 +30,7 @@ class BookingsController < ApplicationController
     params[:booking][:user_id]= current_user.id
     params[:booking][:start_time]= DateTime.now + 15.minutes
     params[:booking][:end_time]= DateTime.now + (15 + params[:post][:end_time].to_i).minutes
+    params[:booking][:price]= params[:post][:end_time].to_i
     @booking = Booking.new(booking_params)
 
 
@@ -77,6 +79,6 @@ class BookingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def booking_params
-      params.require(:booking).permit(:user_id, :car_id, :start_time, :end_time)
+      params.require(:booking).permit(:user_id, :car_id, :start_time, :end_time, :price)
     end
 end
