@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %>
 <p id="notice"><%= notice %></p>
 <text>
@@ -29,3 +30,42 @@
 
 <%= link_to 'Back', bookings_path %>
 </text>
+=======
+<%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %>
+<p id="notice"><%= notice %></p>
+<text>
+<h1>Your Booking</h1>
+<table class="table table-condensed">
+    <thead>
+        <tr>
+        <th>Car:</th>
+        <th>Pick Up/Drop Off Location</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Price</th>
+        </tr>
+    </thead>
+    
+<tbody>
+    <tr>
+        <td><%= @booking.car.name %></td>
+        <td><%= @booking.car.current_address %></td>
+        <td><%= @booking.start_time %></td>
+        <td><%= @booking.end_time %></td>
+        <td><%= @booking.price %></td>
+    </tr>
+    
+</tbody>
+
+</table>
+ </text>
+  <%= render 'shared/card_and_charge_form', product: @product %>
+ 
+<% if current_user.credit_cards.reject{ |card| card.new_record? }.any? %>
+  <%= render 'shared/charge_form', product: @product %>
+<% end %>
+
+
+<%= link_to 'Back', bookings_path %>
+
+>>>>>>> Thilina

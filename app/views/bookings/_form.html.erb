@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %>
 
 <%= form_with(model: booking, local: true) do |form| %>
@@ -51,3 +52,61 @@
 <% end %>
 
 
+=======
+<%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %>
+
+<%= form_with(model: booking, local: true) do |form| %>
+  <% if booking.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+
+      <ul>
+      <% booking.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <div class="panel-body" >
+  <div class="form-group">
+      <text> <label><%= form.label :car_id %></label></text>
+       <div class="col-md-0">
+         <div id = "car_name">
+    <%= form.collection_select(:car_id, Car.where(:status => "Available"), :id, :name, {:id => 'car_name'} )%>
+      </div>
+  </div>
+</div>
+
+<div class="panel-body" >
+  <div class="form-group">  
+<text> <label><%= form.label :end_time %></label></text>
+      <div class="col-md-0">
+         <div id = "end_time">
+<select name="post[end_time]" >
+  <option value= "15" >15 Minutes</option>
+  <option value= "30" >30 Minutes</option>
+  <option value= "45" >45 Minutes</option>
+  <option value= "60" >60 Minutes</option>
+</select>
+          </div>
+      </div>
+    </div>
+     </div>
+     
+
+     
+<div class="form-group">
+   <text><%= form.label :price %></text> 
+    <%= form.text_field :price, id: :price %>
+  </div>
+  
+    <%= form.submit %>
+
+      </div>
+
+
+<% end %>
+
+
+>>>>>>> Thilina
