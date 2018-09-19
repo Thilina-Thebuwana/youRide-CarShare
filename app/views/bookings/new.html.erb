@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <% if user_signed_in? %>
       <% if current_user.try(:admin?) %>
         <text><h1>New Booking</h1></text>
@@ -17,3 +18,23 @@
 <%else%>
 
 <%end%>
+=======
+<% if user_signed_in? %>
+      <% if current_user.try(:admin?) %>
+        
+       
+        <%= render 'form', booking: @booking %>
+
+        <text><%= link_to 'Back', bookings_path %></text>
+        
+        <% else %>
+
+        <%= render 'form', booking: @booking %>
+
+       
+        <%end%>
+        
+<%else%>
+
+<%end%>
+>>>>>>> Thilina

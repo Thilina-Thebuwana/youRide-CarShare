@@ -50,22 +50,22 @@
     <tr>
         <td><%= @booking.car.name %></td>
         <td><%= @booking.car.current_address %></td>
-        <td><%= @booking.start_time %></td>
-        <td><%= @booking.end_time %></td>
-        <td><%= @booking.price %></td>
+        <td><%= @booking.start_time.to_formatted_s(:short) %></td>
+        <td><%= @booking.end_time.to_formatted_s(:short) %></td>
+        <td>$<%= @booking.price %>0</td>
     </tr>
     
 </tbody>
 
 </table>
  </text>
-  <%= render 'shared/card_and_charge_form', product: @product %>
+<% if @booking.paid? %>
+  
+<% else %>
+<%= render 'shared/card_and_charge_form', product: @product %>
  
-<% if current_user.credit_cards.reject{ |card| card.new_record? }.any? %>
-  <%= render 'shared/charge_form', product: @product %>
+
 <% end %>
-
-
 <%= link_to 'Back', bookings_path %>
 
 >>>>>>> Thilina
