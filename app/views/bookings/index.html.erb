@@ -31,10 +31,10 @@
             <tr>
                 <td><%= booking.user.id %></td>
                 <td><%= booking.car.name %></td>
-                <td><%= booking.start_time %></td>
-                <td><%= booking.end_time %></td>
+                <td><%= booking.start_time.to_formatted_s(:short) %></td>
+                <td><%= booking.end_time.to_formatted_s(:short) %></td>
                 <td><%= booking.car.current_address %></td>
-                <td><%= booking.price %></td>
+                <td>@<%= booking.price %>0</td>
                 <td><%= booking.paid %></td>
                 <td><%= link_to 'Show', booking %></td>
                 <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -68,10 +68,10 @@
         <% @bookings.each do |booking| %>
             <tr>
                 <td><%= booking.car.name %></td>
-                <td><%= booking.start_time %></td>
-                <td><%= booking.end_time %></td>
+                <td><%= booking.start_time.to_formatted_s(:short) %></td>
+                <td><%= booking.end_time.to_formatted_s(:short) %></td>
                 <td><%= booking.car.current_address %></td>
-                <td><%= booking.price %></td>
+                <td>$<%= booking.price %>0</td>
                 <td><%= link_to 'Show', booking %></td>
                 <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
@@ -101,10 +101,10 @@
         <% @bookingspaid.each do |booking| %>
             <tr>
                 <td><%= booking.car.name %></td>
-                <td><%= booking.start_time %></td>
-                <td><%= booking.end_time %></td>
+               <td><%= booking.start_time.to_formatted_s(:short) %></td>
+                <td><%= booking.end_time.to_formatted_s(:short) %></td>
                 <td><%= booking.car.current_address %></td>
-                <td><%= booking.price %></td>
+                <td>$<%= booking.price %>0</td>
                 <td><%= link_to 'Show', booking %></td>
                 <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>

@@ -1,12 +1,23 @@
-# app/views/shared/_charge_form.html.erb
 
+
+<div class="panel panel-default" style="width: 400px ; height : 100%" >
+<div class="panel-body" >
 <%= form_for :charge, url: charges_path do |f| %>
+    <h1>Use Previous Card</h1>
   <%= hidden_field_tag :booking_id, @booking.id %>
  
   <% if flash[:error].present? %>
     <p><%= flash[:error] %></p>
   <% end %>
  
+<div class="form-group">
+  <%= f.label "Last 4 digits:"  %>
   <%= f.select :card_id, current_user.credit_cards.reject{ |card| card.new_record? }.collect { |card| [card.digits, card.stripe_id] }, { include_blank: false } %>
-  <%= f.button :submit, data: { 'disable-with' => 'Please wait ...' } %>
+</div>   
+  <%= f.button :submit, data: { 'disable-with' => 'Please wait ...' }, class: 'btn btn-primary' %>
 <% end %>
+    
+    </div>
+    </div>
+
+    
