@@ -77,4 +77,7 @@ class CreditCard < ActiveRecord::Base
     end
   end
 end
+<<<<<<< HEAD
 >>>>>>> Thilina
+=======
+>>>>>>> chris

@@ -57,4 +57,7 @@ class User < ApplicationRecord
   end
 end
 
+<<<<<<< HEAD
 >>>>>>> Thilina
+=======
+>>>>>>> chris

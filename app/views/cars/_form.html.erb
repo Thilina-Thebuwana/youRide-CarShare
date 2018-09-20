@@ -1,3 +1,4 @@
+<<<<<<< HEAD
  <%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %>
 <%= form_with(model: car, local: true) do |form| %>
   <% if car.errors.any? %>
@@ -66,3 +67,82 @@
     <%= form.submit %>
   </div>
 <% end %>
+=======
+ <%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %>
+<div class="col-sm-6 col-sm-offset-5" style= "margin-left: 35%; margin-right: 100%; margin-top: 100px;">
+<div class="panel panel-default" style="width: 400px ; height : 100%" >
+<div class="panel-body" >
+<%= form_with(model: car, local: true) do |form| %>
+  <% if car.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(car.errors.count, "error") %> prohibited this car from being saved:</h2>
+
+      <ul>
+      <% car.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<h1>Car Details</h1>
+<div class="panel-body" >
+  <div class="form-group">
+   <%= form.label "Car Name:" %> 
+    <%= form.text_field :name, id: :car_name %>
+  </div>
+
+  <div class="form-group">
+   <%= form.label "Make:" %>
+    <%= form.text_field :make, id: :car_make %>
+  </div>
+
+  <div class="field">
+   <%= form.label "Model" %>
+    <%= form.text_field :model, id: :car_model %>
+  </div>
+
+  <div class="field">
+   <%= form.label "Number Plate" %>
+    <%= form.text_field :number_plate, id: :car_number_plate %>
+  </div>
+
+  <div class="field">
+   <%= form.label "color" %>
+    <%= form.text_field :color, id: :car_color %>
+  </div>
+
+  <div class="field">
+  <%= form.label "Seat Count" %>
+    <%= form.text_field :seat_count, id: :car_seat_count %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Address" %>
+    <%= form.text_field :current_address, id: :car_current_address %>
+  </div>
+
+  <div class="field">
+   <%= form.label "Latitude" %>
+    <%= form.text_field :latitude, id: :car_latitude %>
+  </div>
+
+  <div class="field">
+   <%= form.label 'Longitude' %>
+    <%= form.text_field :longitude, id: :car_longitude %>
+  </div>
+
+  <div class="field">
+   <%= form.label "Image" %>
+    <text><%= form.file_field :image %></text>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+    </div>
+    </div>
+    </div>
+</div>
+
+<% end %>
+>>>>>>> chris

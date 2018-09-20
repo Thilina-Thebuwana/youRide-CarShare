@@ -91,7 +91,11 @@ class BookingsController < ApplicationController
   def index
     @bookings = Booking.where(:user_id => current_user.id, :paid => false).order('created_at DESC')
     @bookingspaid = Booking.where(:user_id => current_user.id, :paid => true).order('created_at DESC')
+<<<<<<< HEAD
     @admin = Booking.all
+=======
+    @adminpaid =  Booking.where( :paid => false).order('created_at DESC')
+>>>>>>> chris
   end
 
   # GET /bookings/1

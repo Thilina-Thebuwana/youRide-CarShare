@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %>
 <p id="notice"><%= notice %></p>
 <text>
@@ -31,6 +32,48 @@
 <%= link_to 'Back', bookings_path %>
 </text>
 =======
+=======
+<% if user_signed_in? %>
+      <% if current_user.try(:admin?) %>
+<%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %>
+<p id="notice"><%= notice %></p>
+<text>
+<h1>Booking <%= @booking.id %></h1>
+<table class="table table-condensed">
+    <thead>
+        <tr>
+        <th>Car:</th>
+        <th>Pick Up/Drop Off Location</th>
+        <th>User ID</th>
+        <th>User Email</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Price</th>
+        <th>Paid</th>    
+        </tr>
+    </thead>
+    
+<tbody>
+    <tr>
+        <td><%= @booking.car.name %></td>
+        <td><%= @booking.car.current_address %></td>
+        <td><%= @booking.user.id %></td>
+        <td><%= @booking.user.email %></td>
+        <td><%= @booking.start_time.to_formatted_s(:short) %></td>
+        <td><%= @booking.end_time.to_formatted_s(:short) %></td>
+        <td>$<%= @booking.price %>0</td>
+        <td><%= @booking.paid %></td>
+    </tr>
+    
+</tbody>
+
+</table>
+ </text>
+
+   <td><%= link_to '<button type="button" class="btn btn-dark"">Back</button>'.html_safe, bookings_path %>
+
+<%else%>
+>>>>>>> chris
 <%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %>
 <p id="notice"><%= notice %></p>
 <text>
@@ -67,5 +110,14 @@
 
 <% end %>
 <%= link_to 'Back', bookings_path %>
+<<<<<<< HEAD
 
 >>>>>>> Thilina
+=======
+<%end%>
+
+<%else%>
+
+<%end%>
+
+>>>>>>> chris
