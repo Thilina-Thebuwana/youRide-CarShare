@@ -1,0 +1,35 @@
+<div class="col-sm-6 col-sm-offset-5" style= "margin-left: 35%; margin-right: 100%; margin-top: 100px;">
+<div class="panel panel-default" style="width: 400px ; height : 100%" >
+<div class="panel-body" >
+<%= form_for current_user.credit_cards.new, url: charges_path do |f| %>
+  <h1> Pay for booking</h1>
+  <%= hidden_field_tag :booking_id, @booking.id %>
+ 
+  <%= render 'shared/form_errors', f: @card if @card.present? %>
+<div class="form-group">
+  <%= f.label "card number:" %>
+  <%= f.text_field :number, placeholder: 'Card number' %>
+ </div>
+    
+ <div class="form-group">
+  <%= f.label "Expiry Month:" %>
+  <%= f.text_field :month, placeholder: 'Expired month'  %>
+</div>   
+     
+<div class="form-group">
+  <%= f.label "Expiry Year:" %>
+  <%= f.text_field :year, placeholder: 'Expired year'  %>
+</div>
+
+<div class="form-group">
+  <%= f.label "CVV:" %>
+  <%= f.text_field :cvc, placeholder: 'CVC'  %>
+</div>
+
+
+    
+<%= f.button "Pay", data: { 'disable-with' => 'Please wait ...' },class: 'btn btn-primary'  %>
+<% end %>
+
+    </div>
+    </div>

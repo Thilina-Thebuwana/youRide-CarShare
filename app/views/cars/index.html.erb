@@ -40,9 +40,9 @@
         <td><%= car.seat_count %></td>
         <td><%= car.current_address %></td>
         <td><%= car.status %></td>
-        <td><%= link_to 'More Info', car %></td>
-        <td><%= link_to 'Edit', edit_car_path(car) %></td>
-        <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '<button type="button" class="btn btn-dark"">More Info</button>'.html_safe, car %></td>
+        <td><%= link_to '<button type="button" class="btn btn-dark"">Edit</button>'.html_safe, edit_car_path(car) %></td>
+        <td><%= link_to '<button type="button" class="btn btn-dark"">Reitre</button>'.html_safe, car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -73,38 +73,32 @@
  
 
 <% else  %>
- <%= image_tag("youRide logo-wsymbol.png", :size => "250x250", :class => "left-block") %>
+ <%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %>
 
-    <%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %> 
+ <%= image_tag("youRide logo-wsymbol.png", :size => "250x250", :class => "center-block") %>
 
-    <div id = "button-inline">
-        <div id = "button-center"> <%= link_to '<button type="button" class ="btn btn-default">Avaliable Cars</button>'.html_safe, cars_path %></div>
-        
-        <div id = "button-center"> <%= link_to '<button type="button" class ="btn btn-default">Make Booking</button>'.html_safe, new_booking_path %></div>
-            
-        <div id = "button-center"> <%= link_to '<button type="button" class ="btn btn-default">Previous Bookings</button>'.html_safe, bookings_path %></div>
-        
-</div>
+<landing-text><h1>Melbourne's premier car sharing service</h1></landing-text>
 <text>
-        <text>
  
 
  <div id="container">
 
         <div id="sidebar">
             <ul>
-                <li>
+                
                     <a>
                         <div style="text-align:center;vertical-align:middle;height:100%;">
-                            <button type="button" class="btn btn-default" id="cars" href="#" style="position: absolute; top: 90% ;">Go To Maps</button>
+                            <button type="button" class="btn btn-default btn-sm" id="cars" href="#" style="position: absolute; top: 90% , left: 80% ;">Check Avaliable Cars
+                             <span class="glyphicon glyphicon-arrow-down"></span></button>
                         </div>
                     </a>
-                 </li>
+                 
             </ul>
     </div>
 
     
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
 
   
 <h1 class="display-3">Available Cars</h1>
@@ -137,7 +131,7 @@
         <td><%= car.seat_count %></td>
         <td><%= car.current_address %></td>
         <td><%= car.status %></td>
-        <td><%= link_to 'More Info', car %></td>
+        <td><%= link_to '<button type="button" class="btn btn-dark"">More Info</button>'.html_safe, car%></td>
        
     <% end %>
   </tbody>
@@ -164,7 +158,7 @@
 
  <%= image_tag("youRide logo-wsymbol.png", :size => "250x250", :class => "center-block") %>
 
-<landing-text><h1>Melbourne'sds premier car sharing service</h1></landing-text>
+<landing-text><h1>Melbourne's premier car sharing service</h1></landing-text>
 <text>
  
 
@@ -172,13 +166,14 @@
 
         <div id="sidebar">
             <ul>
-                <li>
+                
                     <a>
                         <div style="text-align:center;vertical-align:middle;height:100%;">
-                            <button type="button" class="btn btn-default" id="cars" href="#" style="position: absolute; top: 90% ;">Go To Maps</button>
+                            <button type="button" class="btn btn-default btn-sm" id="cars" href="#" style="position: absolute; top: 90% , left: 80% ;">Check Avaliable Cars
+                             <span class="glyphicon glyphicon-arrow-down"></span></button>
                         </div>
                     </a>
-                 </li>
+                 
             </ul>
     </div>
 
@@ -216,7 +211,7 @@
         <td><%= car.seat_count %></td>
         <td><%= car.current_address %></td>
        <td><%= car.status %></td>
-        <td><%= link_to 'More Info', car %></td>
+        <td><%= link_to '<button type="button" class="btn btn-dark"">More Info</button>'.html_safe, car %></td>
        
       </tr>
     <% end %>
@@ -302,7 +297,7 @@ handler.buildMap({
             'slow');
     }
 
-    $("#sidebar > ul > li > a > div > button").click(function(e) { 
+    $("#sidebar > ul  > a > div > button").click(function(e) { 
           // Prevent a page reload when a link is pressed
         e.preventDefault(); 
           // Call the scroll function
