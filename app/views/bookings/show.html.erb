@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %>
 <p id="notice"><%= notice %></p>
 <text>
@@ -33,6 +34,8 @@
 </text>
 =======
 =======
+=======
+>>>>>>> Thilina
 <% if user_signed_in? %>
       <% if current_user.try(:admin?) %>
 <%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %>
@@ -73,7 +76,10 @@
    <td><%= link_to '<button type="button" class="btn btn-dark"">Back</button>'.html_safe, bookings_path %>
 
 <%else%>
+<<<<<<< HEAD
 >>>>>>> chris
+=======
+>>>>>>> Thilina
 <%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %>
 <p id="notice"><%= notice %></p>
 <text>
@@ -106,14 +112,57 @@
   
 <% else %>
 <%= render 'shared/card_and_charge_form', product: @product %>
+<!--<%= link_to "Checkout" , @booking.paypal_url(bookings_path) %>-->
+<div id="paypal-button"></div>
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+<script>
+  paypal.Button.render({
+    // Configure environment
+    env: 'sandbox',
+    client: {
+      sandbox: 'demo_sandbox_client_id',
+    },
+    // Customize button (optional)
+    locale: 'en_US',
+    style: {
+      size: 'small',
+      color: 'gold',
+      shape: 'pill',
+    },
+    // Set up a payment
+    payment: function(data, actions) {
+      return actions.payment.create({
+        transactions: [{
+          amount: {
+            total: "<%= @booking.price %>",
+            currency: 'AUD'
+          }
+        }]
+      });
+    },
+    // Execute the payment
+    onAuthorize: function(data, actions) {
+      return actions.payment.execute().then(function() {
+        // Show a confirmation message to the buyer
+        window.alert('Payment was successful');
+      });
+    }
+  }, '#paypal-button');
+
+</script>
+       
+ 
  
 
 <% end %>
 <%= link_to 'Back', bookings_path %>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 >>>>>>> Thilina
 =======
+=======
+>>>>>>> Thilina
 <%end%>
 
 <%else%>

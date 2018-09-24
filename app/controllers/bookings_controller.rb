@@ -92,10 +92,14 @@ class BookingsController < ApplicationController
     @bookings = Booking.where(:user_id => current_user.id, :paid => false).order('created_at DESC')
     @bookingspaid = Booking.where(:user_id => current_user.id, :paid => true).order('created_at DESC')
 <<<<<<< HEAD
+<<<<<<< HEAD
     @admin = Booking.all
 =======
     @adminpaid =  Booking.where( :paid => false).order('created_at DESC')
 >>>>>>> chris
+=======
+    @adminpaid =  Booking.where( :paid => false).order('created_at DESC')
+>>>>>>> Thilina
   end
 
   # GET /bookings/1
