@@ -70,7 +70,7 @@ background-size: cover;
 landing-text {
     color: white;
     text-align: center;
-    font-family: lato;
+    font-family: verdana;
     padding: 50px;
 }
 
@@ -117,4 +117,6 @@ z-index: -1;
 text{
     color: white;
 }
+
+
 

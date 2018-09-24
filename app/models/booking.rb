@@ -9,7 +9,24 @@ class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :car
     
-    
+
+def paypal_url(return_url)
+    values = { 
+        :business => 'youRide@gmail.com',
+        :cmd => '_product',
+        :upload => 1,
+        :return => return_url,
+        :invoice => id
+        }
+        values.merge!({
+            "amount" => self.price,
+            "item_name" => "Booking",
+            "item_number" => self.id,
+            "quantity" => "1"
+            })
+ 
+"https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query
+end 
 
 private
 

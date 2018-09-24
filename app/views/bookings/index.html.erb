@@ -9,7 +9,7 @@
 
     
 
-        <h1 class="display-3">All Bookings</h1>
+        <h1 class="display-3">All Unpaid Bookings</h1>
    
 
     <table class = "table">
@@ -27,17 +27,16 @@
     </thead>
 
     <tbody>
-        <% @admin.each do |booking| %>
+        <% @adminpaid.each do |booking| %>
             <tr>
                 <td><%= booking.user.id %></td>
                 <td><%= booking.car.name %></td>
-                <td><%= booking.start_time.to_formatted_s(:short) %></td>
-                <td><%= booking.end_time.to_formatted_s(:short) %></td>
+                <td><%= booking.start_time %></td>
+                <td><%= booking.end_time %></td>
                 <td><%= booking.car.current_address %></td>
-                <td>@<%= booking.price %>0</td>
+                <td>$<%= booking.price %>0</td>
                 <td><%= booking.paid %></td>
-                <td><%= link_to 'Show', booking %></td>
-                <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td><%= link_to '<button type="button" class="btn btn-dark"">More Info</button>'.html_safe, booking %></td>
             </tr>
         <% end %>
     </tbody>
@@ -68,17 +67,16 @@
         <% @bookings.each do |booking| %>
             <tr>
                 <td><%= booking.car.name %></td>
-                <td><%= booking.start_time.to_formatted_s(:short) %></td>
+               <td><%= booking.start_time.to_formatted_s(:short) %></td>
                 <td><%= booking.end_time.to_formatted_s(:short) %></td>
                 <td><%= booking.car.current_address %></td>
                 <td>$<%= booking.price %>0</td>
-                <td><%= link_to 'Show', booking %></td>
-                <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                 <td><%= link_to '<button type="button" class="btn btn-dark"">More Info</button>'.html_safe, booking %></td><td><%= link_to '<button type="button" class="btn btn-dark"">Cancel</button>'.html_safe, booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
         <% end %>
     </tbody>
     </table>
-<%= link_to 'New Booking',  new_booking_path %>
+<%= link_to '<button type="button" class="btn btn-dark"">New Booking</button>'.html_safe,  new_booking_path %>
 </text>
 
 <text>
@@ -105,13 +103,12 @@
                 <td><%= booking.end_time.to_formatted_s(:short) %></td>
                 <td><%= booking.car.current_address %></td>
                 <td>$<%= booking.price %>0</td>
-                <td><%= link_to 'Show', booking %></td>
-                <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                 <td><%= link_to '<button type="button" class="btn btn-dark"">More Info</button>'.html_safe, booking %></td>
             </tr>
         <% end %>
     </tbody>
     </table>
-<%= link_to 'New Booking',  new_booking_path %>
+<%= link_to '<button type="button" class="btn btn-dark"">New Booking</button>'.html_safe,  new_booking_path %>
 </text>
 <%end%>
 <% else %>

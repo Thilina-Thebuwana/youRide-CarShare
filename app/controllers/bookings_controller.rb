@@ -7,7 +7,7 @@ class BookingsController < ApplicationController
   def index
     @bookings = Booking.where(:user_id => current_user.id, :paid => false).order('created_at DESC')
     @bookingspaid = Booking.where(:user_id => current_user.id, :paid => true).order('created_at DESC')
-    @admin = Booking.all
+    @adminpaid =  Booking.where( :paid => false).order('created_at DESC')
   end
 
   # GET /bookings/1

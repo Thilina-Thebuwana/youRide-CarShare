@@ -77,7 +77,7 @@
 
  <%= image_tag("youRide logo-wsymbol.png", :size => "250x250", :class => "center-block") %>
 
-<landing-text><h1>Melbourne'sds premier car sharing service</h1></landing-text>
+<landing-text><h1>Melbourne's premier car sharing service</h1></landing-text>
 <text>
  
 
@@ -85,13 +85,15 @@
 
         <div id="sidebar">
             <ul>
-                <li>
+                
                     <a>
                         <div style="text-align:center;vertical-align:middle;height:100%;">
-                            <button type="button" class="btn btn-default" id="cars" href="#" style="position: absolute; top: 90% , left: 80% ;">Check Avaliable Cars</button>
+                   
+                            <div class="ct-btn-scroll ct-js-btn-scroll" id = "cars" href="#"><img alt="Arrow Down Icon" src="https://www.solodev.com/assets/anchor/arrow-down.png"></div>
+                          
                         </div>
                     </a>
-                 </li>
+                 
             </ul>
     </div>
 
@@ -157,7 +159,7 @@
 
  <%= image_tag("youRide logo-wsymbol.png", :size => "250x250", :class => "center-block") %>
 
-<landing-text><h1>Melbourne'sds premier car sharing service</h1></landing-text>
+<landing-text><h1>Melbourne's premier car sharing service</h1></landing-text>
 <text>
  
 
@@ -165,13 +167,13 @@
 
         <div id="sidebar">
             <ul>
-                <li>
+                
                     <a>
                         <div style="text-align:center;vertical-align:middle;height:100%;">
-                            <button type="button" class="btn btn-default" id="cars" href="#" style="position: absolute; top: 90% , left: 80% ;">Check Avaliable Cars</button>
+                            <div class="ct-btn-scroll ct-js-btn-scroll" id = "cars" href="#"><img alt="Arrow Down Icon" src="https://www.solodev.com/assets/anchor/arrow-down.png"></div>
                         </div>
                     </a>
-                 </li>
+                 
             </ul>
     </div>
 
@@ -295,7 +297,7 @@ handler.buildMap({
             'slow');
     }
 
-    $("#sidebar > ul > li > a > div > button").click(function(e) { 
+    $("#sidebar > ul  > a > div > div").click(function(e) { 
           // Prevent a page reload when a link is pressed
         e.preventDefault(); 
           // Call the scroll function
