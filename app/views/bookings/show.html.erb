@@ -1,41 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %>
-<p id="notice"><%= notice %></p>
-<text>
-<h1>Your Booking</h1>
-<table class="table table-condensed">
-    <thead>
-        <tr>
-        <th>Car:</th>
-        <th>Pick Up/Drop Off Location</th>
-        <th>Start Time</th>
-        <th>End Time</th>
-        </tr>
-    </thead>
-    
-<tbody>
-    <tr>
-        <td><%= @booking.car.name %></td>
-        <td><%= @booking.car.current_address %></td>
-        <td><%= @booking.start_time %></td>
-        <td><%= @booking.end_time %></td>
-    </tr>
-    
-</tbody>
-
-</table>
- 
-  
-
-
-<%= link_to 'Back', bookings_path %>
-</text>
-=======
-=======
-=======
->>>>>>> Thilina
 <% if user_signed_in? %>
       <% if current_user.try(:admin?) %>
 <%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %>
@@ -76,10 +38,6 @@
    <td><%= link_to '<button type="button" class="btn btn-dark"">Back</button>'.html_safe, bookings_path %>
 
 <%else%>
-<<<<<<< HEAD
->>>>>>> chris
-=======
->>>>>>> Thilina
 <%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %>
 <p id="notice"><%= notice %></p>
 <text>
@@ -156,17 +114,9 @@
 
 <% end %>
 <%= link_to 'Back', bookings_path %>
-<<<<<<< HEAD
-<<<<<<< HEAD
-
->>>>>>> Thilina
-=======
-=======
->>>>>>> Thilina
 <%end%>
 
 <%else%>
 
 <%end%>
 
->>>>>>> chris

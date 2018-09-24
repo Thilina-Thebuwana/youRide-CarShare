@@ -1,73 +1,3 @@
-<<<<<<< HEAD
- <%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %>
-<%= form_with(model: car, local: true) do |form| %>
-  <% if car.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(car.errors.count, "error") %> prohibited this car from being saved:</h2>
-
-      <ul>
-      <% car.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="form-group">
-   <text><%= form.label :name %></text> 
-    <%= form.text_field :name, id: :car_name %>
-  </div>
-
-  <div class="form-group">
-   <text><%= form.label :make %></text> 
-    <%= form.text_field :make, id: :car_make %>
-  </div>
-
-  <div class="field">
-    <text><%= form.label :model %></text>
-    <%= form.text_field :model, id: :car_model %>
-  </div>
-
-  <div class="field">
-    <text><%= form.label :number_plate %></text>
-    <%= form.text_field :number_plate, id: :car_number_plate %>
-  </div>
-
-  <div class="field">
-    <text><%= form.label :color %></text>
-    <%= form.text_field :color, id: :car_color %>
-  </div>
-
-  <div class="field">
-    <text><%= form.label :seat_count %></text>
-    <%= form.text_field :seat_count, id: :car_seat_count %>
-  </div>
-
-  <div class="field">
-    <text><%= form.label :current_address %></text>
-    <%= form.text_field :current_address, id: :car_current_address %>
-  </div>
-
-  <div class="field">
-    <text><%= form.label :latitude %></text>
-    <%= form.text_field :latitude, id: :car_latitude %>
-  </div>
-
-  <div class="field">
-    <text><%= form.label :longitude %></text>
-    <%= form.text_field :longitude, id: :car_longitude %>
-  </div>
-
-  <div class="field">
-    <text><%= form.label :image %></text>
-    <text><%= form.file_field :image %></text>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
-=======
  <%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %>
 <div class="col-sm-6 col-sm-offset-5" style= "margin-left: 35%; margin-right: 100%; margin-top: 100px;">
 <div class="panel panel-default" style="width: 400px ; height : 100%" >
@@ -145,4 +75,3 @@
 </div>
 
 <% end %>
->>>>>>> chris
