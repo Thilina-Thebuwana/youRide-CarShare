@@ -1,12 +1,11 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
-  before_action :authorize_user_booking
+  #before_action :authorize_user_booking
 
   # GET /bookings
   # GET /bookings.json
   def index
-    @bookings = Booking.where(:user_id => current_user.id, :paid => false).order('created_at DESC')
-    @bookingspaid = Booking.where(:user_id => current_user.id, :paid => true).order('created_at DESC')
+    @bookings = Booking.all.order('created_at DESC')
     @adminpaid =  Booking.where( :paid => false).order('created_at DESC')
   end
 
@@ -66,6 +65,7 @@ class BookingsController < ApplicationController
   def destroy
     @booking.destroy
     respond_to do |format|
+    @booking.car.update(status: "Available")
       format.html { redirect_to bookings_url, notice: 'Booking was successfully destroyed.' }
       format.json { head :no_content }
     end
@@ -79,6 +79,6 @@ class BookingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def booking_params
-      params.require(:booking).permit(:user_id, :car_id, :start_time, :end_time, :price)
+      params.require(:booking).permit(:user_id, :car_id, :start_time, :end_time, :price, :paid)
     end
 end
