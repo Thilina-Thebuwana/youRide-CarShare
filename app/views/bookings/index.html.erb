@@ -9,7 +9,7 @@
 
     
 
-        <h1 class="display-3">All Unpaid Bookings</h1>
+        <h1 class="display-3">All Bookings</h1>
    
 
     <table class = "table">
@@ -29,15 +29,27 @@
     <tbody>
         <% @bookings.each do |booking| %>
             <tr>
+            <% unless booking.car.blank? %>
                 <td><%= booking.user.id %></td>
                 <td><%= booking.car.name %></td>
-                <td><%= booking.start_time %></td>
-                <td><%= booking.end_time %></td>
+                 <td><%= booking.start_time.to_formatted_s(:short) %></td>
+                <td><%= booking.end_time.to_formatted_s(:short) %></td>
                 <td><%= booking.car.current_address %></td>
                 <td>$<%= booking.price %>0</td>
                 <td><%= booking.paid %></td>
                 <td><%= link_to '<button type="button" class="btn btn-dark"">More Info</button>'.html_safe, booking %></td>
             </tr>
+        <% else %>
+         <td><%= booking.user.id %></td>
+                <td>retired</td>
+                <td><%= booking.start_time.to_formatted_s(:short) %></td>
+                <td><%= booking.end_time.to_formatted_s(:short) %></td>
+                <td>N/A</td>
+                <td>$<%= booking.price %>0</td>
+                <td><%= booking.paid %></td>
+                <td><%= link_to '<button type="button" class="btn btn-dark"">More Info</button>'.html_safe, booking %></td>
+            </tr>
+                        <% end %>
         <% end %>
     </tbody>
     </table>
@@ -58,6 +70,7 @@
             <th>Start time</th>
             <th>End time</th>
             <th>pick-up/dropoff location</th>
+            <th>Current Status</th>
             <th>Price</th>
             <th>Paid</th>
             <th colspan="3"></th>
@@ -67,19 +80,27 @@
     <tbody>
         <% @bookings.each do |booking| %>
             <tr>
-                <td><%= booking.car.name %></td>
+            <% unless booking.car.blank? %>
+               <td><%= booking.car.name %></td>
                <td><%= booking.start_time.to_formatted_s(:short) %></td>
                 <td><%= booking.end_time.to_formatted_s(:short) %></td>
                 <td><%= booking.car.current_address %></td>
+                <% if Time.now < booking.end_time %>
+                  <td>In Progress</td>
+                <% else %>
+                 <td>Finished</td>
+                <% end %>
                 <td>$<%= booking.price %>0</td>
                  <td><%= booking.paid %></td>
                  <td><%= link_to '<button type="button" class="btn btn-dark"">More Info</button>'.html_safe, booking %></td>
+               
                 <% if booking.paid? %>
               
                 <% else %>
                 <td><%= link_to '<button type="button" class="btn btn-dark"">Pay</button>'.html_safe, booking %></td>
                 <% end %>
             </tr>
+         <% end %>
         <% end %>
     </tbody>
     </table>
