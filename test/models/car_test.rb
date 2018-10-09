@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-require 'test_helper'
-
-class CarTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
-end
-=======
 require 'test_helper'
 
 class CarTest < ActiveSupport::TestCase
@@ -49,4 +40,3 @@ class CarTest < ActiveSupport::TestCase
    
     end 
 end
->>>>>>> Thilina
