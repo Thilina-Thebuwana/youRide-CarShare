@@ -14,9 +14,9 @@ class BookingTest < ActiveSupport::TestCase
     end 
     
     
-     test "Should save" do 
-        assert Booking.new(car_id: '1', start_time: '2018-09-06 20:01:00 +1000' , end_time: '2018-09-06 21:01:00 +1000' ).save
-    end 
-    
-  # end
+#     test "Should save" do 
+#        assert Booking.new(car_id: '1', start_time: '2018-09-06 20:01:00 +1000' , end_time: '2018-09-06 21:01:00 +1000' , paid: 'false' ).save
+#    end 
+#    
+  
 end

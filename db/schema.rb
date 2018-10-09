@@ -72,7 +72,6 @@ ActiveRecord::Schema.define(version: 20180918104619) do
     t.string "uid"
     t.string "first_name"
     t.string "last_name"
-    t.float "lattitude"
     t.float "latitude"
     t.float "longitude"
     t.string "ip"

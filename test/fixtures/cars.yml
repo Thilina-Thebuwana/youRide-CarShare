@@ -10,6 +10,7 @@ one:
   current_address: 216, Lonsdale Street, Melbourne
   latitude: -31.232123
   longitude: 141.23243
+  status: Available
 
 two:
   name: Chris
@@ -21,3 +22,4 @@ two:
   current_address: 213 Grattan St, Melbourne
   latitude: -31.23432
   longitude: 141.2323
+  status: Available
