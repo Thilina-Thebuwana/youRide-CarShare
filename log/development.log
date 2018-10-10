@@ -48000,3 +48000,465 @@ Processing by BookingsController#new as HTML
 Completed 200 OK in 438ms (Views: 380.6ms | ActiveRecord: 3.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-10-09 20:46:29 +1100
+Processing by CarsController#index as HTML
+  [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."status" = ?[0m  [["status", "Available"]]
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  Rendered cars/index.html.erb within layouts/application (32.3ms)
+Completed 200 OK in 375ms (Views: 312.5ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/bookings/new" for 127.0.0.1 at 2018-10-09 20:46:31 +1100
+Processing by BookingsController#new as HTML
+  Rendering bookings/new.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."status" = ?[0m  [["status", "Available"]]
+  Rendered bookings/_form.html.erb (10.0ms)
+  Rendered bookings/new.html.erb within layouts/application (46.0ms)
+Completed 200 OK in 419ms (Views: 367.1ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/bookings" for 127.0.0.1 at 2018-10-09 20:46:33 +1100
+Processing by BookingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ikxw/Js+x/B+XbeWTOMWOt8jcabIBqHiqz5ZOq+mVVx8HumvF36oAqj/Bs1YZkMVzeZeePqAl+qa8bcLSuJhJQ==", "booking"=>{"car_id"=>"7"}, "post"=>{"end_time"=>"15"}, "commit"=>"Create Booking"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBooking Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "bookings" WHERE ("bookings"."id" IS NOT NULL) AND "bookings"."car_id" = ? AND (start_time < '2018-10-09 21:16:33.398062' AND end_time > '2018-10-09 21:01:33.398062') LIMIT ?[0m  [["car_id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "bookings" ("user_id", "car_id", "start_time", "end_time", "created_at", "updated_at", "price") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 14], ["car_id", 7], ["start_time", "2018-10-09 21:01:33.398062"], ["end_time", "2018-10-09 21:16:33.398062"], ["created_at", "2018-10-09 20:46:33.444106"], ["updated_at", "2018-10-09 20:46:33.444106"], ["price", 15.0]]
+  [1m[35m (21.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "cars" SET "status" = ?, "updated_at" = ? WHERE "cars"."id" = ?[0m  [["status", "Unavailable"], ["updated_at", "2018-10-09 20:46:33.471096"], ["id", 7]]
+  [1m[35m (18.0ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] Enqueued ResetCarAvailabilityJob (Job ID: 7dd29512-85e4-4f5a-86e9-4cbaab83ec06) to Async(default) at 2018-10-09 10:16:33 UTC with arguments: #<GlobalID:0xae30870 @uri=#<URI::GID gid://you-ride/Car/7>>
+[ActiveJob] Enqueued PaidStatusJob (Job ID: 4a80a9d1-7cfe-4e54-b7e1-5ebb770a48a5) to Async(default) at 2018-10-09 10:16:33 UTC with arguments: #<GlobalID:0xadf9478 @uri=#<URI::GID gid://you-ride/Booking/5>>
+Redirected to http://localhost:3000/bookings/5
+Completed 302 Found in 204ms (ActiveRecord: 42.9ms)
+
+
+Started GET "/bookings/5" for 127.0.0.1 at 2018-10-09 20:46:33 +1100
+Processing by BookingsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBooking Load (0.0ms)[0m  [1m[34mSELECT  "bookings".* FROM "bookings" WHERE "bookings"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering bookings/show.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered bookings/show.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 339ms (Views: 304.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bookings" for 127.0.0.1 at 2018-10-09 20:46:39 +1100
+Processing by BookingsController#index as HTML
+  Rendering bookings/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mBooking Load (0.0ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" ORDER BY created_at DESC[0m
+  [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Car Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE Car Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCar Load (1.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered bookings/index.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 389ms (Views: 343.8ms | ActiveRecord: 2.0ms)
+
+
+  [1m[36mBooking Load (0.0ms)[0m  [1m[34mSELECT  "bookings".* FROM "bookings" WHERE "bookings"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[ActiveJob] [PaidStatusJob] [4a80a9d1-7cfe-4e54-b7e1-5ebb770a48a5] Performing PaidStatusJob (Job ID: 4a80a9d1-7cfe-4e54-b7e1-5ebb770a48a5) from Async(default) with arguments: #<GlobalID:0xb92dfb8 @uri=#<URI::GID gid://you-ride/Booking/5>>
+[ActiveJob] [ResetCarAvailabilityJob] [7dd29512-85e4-4f5a-86e9-4cbaab83ec06] Performing ResetCarAvailabilityJob (Job ID: 7dd29512-85e4-4f5a-86e9-4cbaab83ec06) from Async(default) with arguments: #<GlobalID:0xb9954e8 @uri=#<URI::GID gid://you-ride/Car/7>>
+[ActiveJob] [PaidStatusJob] [4a80a9d1-7cfe-4e54-b7e1-5ebb770a48a5]   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ResetCarAvailabilityJob] [7dd29512-85e4-4f5a-86e9-4cbaab83ec06]   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [PaidStatusJob] [4a80a9d1-7cfe-4e54-b7e1-5ebb770a48a5]   [1m[36mBooking Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "bookings" WHERE ("bookings"."id" != ?) AND "bookings"."car_id" = ? AND (start_time < '2018-10-09 21:16:33.398062' AND end_time > '2018-10-09 21:01:33.398062') LIMIT ?[0m  [["id", 5], ["car_id", 7], ["LIMIT", 1]]
+[ActiveJob] [ResetCarAvailabilityJob] [7dd29512-85e4-4f5a-86e9-4cbaab83ec06]   [1m[35mSQL (48.0ms)[0m  [1m[33mUPDATE "cars" SET "status" = ?, "updated_at" = ? WHERE "cars"."id" = ?[0m  [["status", "Available"], ["updated_at", "2018-10-09 21:16:33.607814"], ["id", 7]]
+[ActiveJob] [PaidStatusJob] [4a80a9d1-7cfe-4e54-b7e1-5ebb770a48a5]   [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+[ActiveJob] [PaidStatusJob] [4a80a9d1-7cfe-4e54-b7e1-5ebb770a48a5]   [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[ActiveJob] [PaidStatusJob] [4a80a9d1-7cfe-4e54-b7e1-5ebb770a48a5]   [1m[35mSQL (0.0ms)[0m  [1m[33mUPDATE "bookings" SET "paid" = ?, "updated_at" = ? WHERE "bookings"."id" = ?[0m  [["paid", "t"], ["updated_at", "2018-10-09 21:16:33.736973"], ["id", 5]]
+[ActiveJob] [PaidStatusJob] [4a80a9d1-7cfe-4e54-b7e1-5ebb770a48a5]   [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+[ActiveJob] [PaidStatusJob] [4a80a9d1-7cfe-4e54-b7e1-5ebb770a48a5] Error performing PaidStatusJob (Job ID: 4a80a9d1-7cfe-4e54-b7e1-5ebb770a48a5) from Async(default) in 140.17ms: ActiveRecord::StatementInvalid (SQLite3::BusyException: database is locked: UPDATE "bookings" SET "paid" = ?, "updated_at" = ? WHERE "bookings"."id" = ?):
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/sqlite3-1.3.13-x86-mingw32/lib/sqlite3/statement.rb:108:in `step'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/sqlite3-1.3.13-x86-mingw32/lib/sqlite3/statement.rb:108:in `block in each'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/sqlite3-1.3.13-x86-mingw32/lib/sqlite3/statement.rb:107:in `loop'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/sqlite3-1.3.13-x86-mingw32/lib/sqlite3/statement.rb:107:in `each'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/connection_adapters/sqlite3_adapter.rb:218:in `to_a'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/connection_adapters/sqlite3_adapter.rb:218:in `block (2 levels) in exec_query'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/dependencies/interlock.rb:46:in `block in permit_concurrent_loads'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/concurrency/share_lock.rb:185:in `yield_shares'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/dependencies/interlock.rb:45:in `permit_concurrent_loads'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/connection_adapters/sqlite3_adapter.rb:209:in `block in exec_query'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/connection_adapters/abstract_adapter.rb:613:in `block (2 levels) in log'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/2.3.0/monitor.rb:214:in `mon_synchronize'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/connection_adapters/abstract_adapter.rb:612:in `block in log'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/connection_adapters/abstract_adapter.rb:604:in `log'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/connection_adapters/sqlite3_adapter.rb:208:in `exec_query'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/connection_adapters/sqlite3_adapter.rb:239:in `exec_delete'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/connection_adapters/abstract/database_statements.rb:140:in `update'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/connection_adapters/abstract/query_cache.rb:17:in `update'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/relation.rb:85:in `_update_record'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/persistence.rb:545:in `_update_row'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/locking/optimistic.rb:79:in `_update_row'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/persistence.rb:567:in `_update_record'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/attribute_methods/dirty.rb:293:in `_update_record'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/callbacks.rb:344:in `block in _update_record'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/callbacks.rb:131:in `run_callbacks'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/callbacks.rb:827:in `_run_update_callbacks'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/callbacks.rb:344:in `_update_record'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/timestamp.rb:107:in `_update_record'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/persistence.rb:553:in `create_or_update'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/callbacks.rb:336:in `block in create_or_update'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/callbacks.rb:131:in `run_callbacks'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/callbacks.rb:827:in `_run_save_callbacks'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/callbacks.rb:336:in `create_or_update'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/persistence.rb:129:in `save'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/validations.rb:44:in `save'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/attribute_methods/dirty.rb:35:in `save'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/transactions.rb:308:in `block (2 levels) in save'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/transactions.rb:384:in `block in with_transaction_returning_status'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/connection_adapters/abstract/database_statements.rb:233:in `transaction'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/transactions.rb:210:in `transaction'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/transactions.rb:381:in `with_transaction_returning_status'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/transactions.rb:308:in `block in save'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/transactions.rb:323:in `rollback_active_record_state!'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/transactions.rb:307:in `save'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/suppressor.rb:42:in `save'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/persistence.rb:281:in `block in update'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/transactions.rb:384:in `block in with_transaction_returning_status'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/connection_adapters/abstract/database_statements.rb:235:in `block in transaction'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/connection_adapters/abstract/transaction.rb:194:in `block in within_new_transaction'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/2.3.0/monitor.rb:214:in `mon_synchronize'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/connection_adapters/abstract/transaction.rb:191:in `within_new_transaction'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/connection_adapters/abstract/database_statements.rb:235:in `transaction'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/transactions.rb:210:in `transaction'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/transactions.rb:381:in `with_transaction_returning_status'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/persistence.rb:279:in `update'
+C:/Users/Thilina/Desktop/University/Programming/Heroku/Heroku-youRide/app/jobs/paid_status_job.rb:5:in `perform'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activejob-5.1.6/lib/active_job/execution.rb:37:in `block in perform_now'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/callbacks.rb:108:in `block in run_callbacks'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/i18n-1.0.1/lib/i18n.rb:284:in `with_locale'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activejob-5.1.6/lib/active_job/translation.rb:7:in `block (2 levels) in <module:Translation>'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/callbacks.rb:117:in `instance_exec'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/callbacks.rb:117:in `block in run_callbacks'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activejob-5.1.6/lib/active_job/logging.rb:24:in `block (4 levels) in <module:Logging>'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/notifications.rb:166:in `block in instrument'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/notifications.rb:166:in `instrument'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activejob-5.1.6/lib/active_job/logging.rb:23:in `block (3 levels) in <module:Logging>'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activejob-5.1.6/lib/active_job/logging.rb:44:in `block in tag_logger'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/tagged_logging.rb:69:in `block in tagged'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/tagged_logging.rb:26:in `tagged'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/tagged_logging.rb:69:in `tagged'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activejob-5.1.6/lib/active_job/logging.rb:44:in `tag_logger'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activejob-5.1.6/lib/active_job/logging.rb:20:in `block (2 levels) in <module:Logging>'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/callbacks.rb:117:in `instance_exec'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/callbacks.rb:117:in `block in run_callbacks'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/callbacks.rb:135:in `run_callbacks'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activejob-5.1.6/lib/active_job/execution.rb:33:in `perform_now'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activejob-5.1.6/lib/active_job/execution.rb:22:in `block in execute'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/callbacks.rb:108:in `block in run_callbacks'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activejob-5.1.6/lib/active_job/railtie.rb:26:in `block (4 levels) in <class:Railtie>'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/execution_wrapper.rb:85:in `wrap'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/reloader.rb:68:in `block in wrap'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/execution_wrapper.rb:85:in `wrap'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/reloader.rb:67:in `wrap'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activejob-5.1.6/lib/active_job/railtie.rb:25:in `block (3 levels) in <class:Railtie>'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/callbacks.rb:117:in `instance_exec'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/callbacks.rb:117:in `block in run_callbacks'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/callbacks.rb:135:in `run_callbacks'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activejob-5.1.6/lib/active_job/execution.rb:20:in `execute'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activejob-5.1.6/lib/active_job/queue_adapters/async_adapter.rb:68:in `perform'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/safe_task_executor.rb:24:in `block in execute'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/concurrent-ruby-1.0.5/lib/concurrent/synchronization/mri_lockable_object.rb:38:in `block in synchronize'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/concurrent-ruby-1.0.5/lib/concurrent/synchronization/mri_lockable_object.rb:38:in `synchronize'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/concurrent-ruby-1.0.5/lib/concurrent/synchronization/mri_lockable_object.rb:38:in `synchronize'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/safe_task_executor.rb:19:in `execute'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/concurrent-ruby-1.0.5/lib/concurrent/ivar.rb:170:in `safe_execute'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/concurrent-ruby-1.0.5/lib/concurrent/scheduled_task.rb:285:in `process_task'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/timer_set.rb:168:in `block (2 levels) in process_tasks'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:348:in `run_task'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:337:in `block (3 levels) in create_worker'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:320:in `loop'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:320:in `block (2 levels) in create_worker'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:319:in `catch'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:319:in `block in create_worker'
+[ActiveJob] [ResetCarAvailabilityJob] [7dd29512-85e4-4f5a-86e9-4cbaab83ec06]   [1m[35m (146.0ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ResetCarAvailabilityJob] [7dd29512-85e4-4f5a-86e9-4cbaab83ec06] Performed ResetCarAvailabilityJob (Job ID: 7dd29512-85e4-4f5a-86e9-4cbaab83ec06) from Async(default) in 309.49ms
+Started GET "/bookings" for 127.0.0.1 at 2018-10-09 21:18:04 +1100
+Processing by BookingsController#index as HTML
+  Rendering bookings/index.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mBooking Load (0.0ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" ORDER BY created_at DESC[0m
+  [1m[36mCar Load (1.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Car Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE Car Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered bookings/index.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 348ms (Views: 314.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/bookings/5" for 127.0.0.1 at 2018-10-09 21:20:23 +1100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BookingsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBooking Load (0.0ms)[0m  [1m[34mSELECT  "bookings".* FROM "bookings" WHERE "bookings"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering bookings/show.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCar Load (1.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered bookings/show.html.erb within layouts/application (385.5ms)
+Completed 200 OK in 826ms (Views: 748.7ms | ActiveRecord: 5.0ms)
+
+
+Started PATCH "/bookings/5" for 127.0.0.1 at 2018-10-09 21:21:15 +1100
+Processing by BookingsController#update as JSON
+  Parameters: {"paid"=>true, "id"=>"5", "booking"=>{"paid"=>true}}
+Can't verify CSRF token authenticity.
+  [1m[36mBooking Load (0.0ms)[0m  [1m[34mSELECT  "bookings".* FROM "bookings" WHERE "bookings"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBooking Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "bookings" WHERE ("bookings"."id" != ?) AND "bookings"."car_id" = ? AND (start_time < '2018-10-09 21:16:33.398062' AND end_time > '2018-10-09 21:01:33.398062') LIMIT ?[0m  [["id", 5], ["car_id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "bookings" SET "paid" = ?, "updated_at" = ? WHERE "bookings"."id" = ?[0m  [["paid", "t"], ["updated_at", "2018-10-09 21:21:15.492759"], ["id", 5]]
+  [1m[35m (8.4ms)[0m  [1m[36mcommit transaction[0m
+  Rendering bookings/show.json.jbuilder
+  Rendered bookings/_booking.json.jbuilder (1.0ms)
+  Rendered bookings/show.json.jbuilder (20.0ms)
+Completed 200 OK in 279ms (Views: 248.6ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/bookings/5" for 127.0.0.1 at 2018-10-09 21:21:18 +1100
+Processing by BookingsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBooking Load (0.0ms)[0m  [1m[34mSELECT  "bookings".* FROM "bookings" WHERE "bookings"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering bookings/show.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCar Load (1.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered bookings/show.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 370ms (Views: 335.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/bookings" for 127.0.0.1 at 2018-10-09 21:21:20 +1100
+Processing by BookingsController#index as HTML
+  Rendering bookings/index.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mBooking Load (0.0ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" ORDER BY created_at DESC[0m
+  [1m[36mCar Load (1.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Car Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCar Load (1.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE Car Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered bookings/index.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 345ms (Views: 311.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/bookings/new" for 127.0.0.1 at 2018-10-09 21:24:04 +1100
+Processing by BookingsController#new as HTML
+  Rendering bookings/new.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."status" = ?[0m  [["status", "Available"]]
+  Rendered bookings/_form.html.erb (30.8ms)
+  Rendered bookings/new.html.erb within layouts/application (66.8ms)
+Completed 200 OK in 435ms (Views: 401.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/bookings" for 127.0.0.1 at 2018-10-09 21:54:53 +1100
+Processing by BookingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wRfWUhgZQvCJ4lAhOR1NGrQQ+zDV+jpsBKjb+nF0SqA3RU8BlFktAl9A4XotmBg1ptXU7ud8DGQ1ZzXLlDB+2Q==", "booking"=>{"car_id"=>"7"}, "post"=>{"end_time"=>"15"}, "commit"=>"Create Booking"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBooking Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "bookings" WHERE ("bookings"."id" IS NOT NULL) AND "bookings"."car_id" = ? AND (start_time < '2018-10-09 22:24:53.308490' AND end_time > '2018-10-09 22:09:53.308490') LIMIT ?[0m  [["car_id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "bookings" ("user_id", "car_id", "start_time", "end_time", "created_at", "updated_at", "price") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 14], ["car_id", 7], ["start_time", "2018-10-09 22:09:53.308490"], ["end_time", "2018-10-09 22:24:53.308490"], ["created_at", "2018-10-09 21:54:53.327508"], ["updated_at", "2018-10-09 21:54:53.327508"], ["price", 15.0]]
+  [1m[35m (8.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "cars" SET "status" = ?, "updated_at" = ? WHERE "cars"."id" = ?[0m  [["status", "Unavailable"], ["updated_at", "2018-10-09 21:54:53.342525"], ["id", 7]]
+  [1m[35m (8.0ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] Enqueued ResetCarAvailabilityJob (Job ID: 9f866883-5ecf-4e95-9ab2-476dc06d6f8c) to Async(default) at 2018-10-09 11:24:53 UTC with arguments: #<GlobalID:0xb0ee570 @uri=#<URI::GID gid://you-ride/Car/7>>
+[ActiveJob] Enqueued PaidStatusJob (Job ID: 353f9223-d74b-4130-b0f3-18e7c27e3902) to Async(default) at 2018-10-09 11:24:53 UTC with arguments: #<GlobalID:0xb0bc7d0 @uri=#<URI::GID gid://you-ride/Booking/6>>
+Redirected to http://localhost:3000/bookings/6
+Completed 302 Found in 193ms (ActiveRecord: 18.0ms)
+
+
+Started GET "/bookings/6" for 127.0.0.1 at 2018-10-09 21:54:53 +1100
+Processing by BookingsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mBooking Load (0.0ms)[0m  [1m[34mSELECT  "bookings".* FROM "bookings" WHERE "bookings"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering bookings/show.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered bookings/show.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 333ms (Views: 298.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bookings" for 127.0.0.1 at 2018-10-09 21:54:57 +1100
+Processing by BookingsController#index as HTML
+  Rendering bookings/index.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mBooking Load (0.0ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" ORDER BY created_at DESC[0m
+  [1m[36mCar Load (1.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Car Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Car Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE Car Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCar Load (1.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered bookings/index.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 347ms (Views: 313.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/bookings/4" for 127.0.0.1 at 2018-10-09 21:55:20 +1100
+Processing by BookingsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mBooking Load (0.0ms)[0m  [1m[34mSELECT  "bookings".* FROM "bookings" WHERE "bookings"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering bookings/show.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered bookings/show.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 326ms (Views: 293.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bookings" for 127.0.0.1 at 2018-10-09 21:55:23 +1100
+Processing by BookingsController#index as HTML
+  Rendering bookings/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mBooking Load (0.0ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" ORDER BY created_at DESC[0m
+  [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Car Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Car Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE Car Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered bookings/index.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 345ms (Views: 312.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/bookings/new" for 127.0.0.1 at 2018-10-09 22:11:47 +1100
+Processing by BookingsController#new as HTML
+  Rendering bookings/new.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."status" = ?[0m  [["status", "Available"]]
+  Rendered bookings/_form.html.erb (9.0ms)
+  Rendered bookings/new.html.erb within layouts/application (43.0ms)
+Completed 200 OK in 356ms (Views: 324.2ms | ActiveRecord: 1.0ms)
+
+
+  [1m[36mBooking Load (1.0ms)[0m  [1m[34mSELECT  "bookings".* FROM "bookings" WHERE "bookings"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[ActiveJob] [PaidStatusJob] [353f9223-d74b-4130-b0f3-18e7c27e3902] Performing PaidStatusJob (Job ID: 353f9223-d74b-4130-b0f3-18e7c27e3902) from Async(default) with arguments: #<GlobalID:0xb4b2b48 @uri=#<URI::GID gid://you-ride/Booking/6>>
+[ActiveJob] [ResetCarAvailabilityJob] [9f866883-5ecf-4e95-9ab2-476dc06d6f8c] Performing ResetCarAvailabilityJob (Job ID: 9f866883-5ecf-4e95-9ab2-476dc06d6f8c) from Async(default) with arguments: #<GlobalID:0xb59ef60 @uri=#<URI::GID gid://you-ride/Car/7>>
+[ActiveJob] [PaidStatusJob] [353f9223-d74b-4130-b0f3-18e7c27e3902]   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ResetCarAvailabilityJob] [9f866883-5ecf-4e95-9ab2-476dc06d6f8c]   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [PaidStatusJob] [353f9223-d74b-4130-b0f3-18e7c27e3902]   [1m[36mBooking Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "bookings" WHERE ("bookings"."id" != ?) AND "bookings"."car_id" = ? AND (start_time < '2018-10-09 22:24:53.308490' AND end_time > '2018-10-09 22:09:53.308490') LIMIT ?[0m  [["id", 6], ["car_id", 7], ["LIMIT", 1]]
+[ActiveJob] [ResetCarAvailabilityJob] [9f866883-5ecf-4e95-9ab2-476dc06d6f8c]   [1m[35mSQL (0.0ms)[0m  [1m[33mUPDATE "cars" SET "status" = ?, "updated_at" = ? WHERE "cars"."id" = ?[0m  [["status", "Available"], ["updated_at", "2018-10-09 22:24:53.444761"], ["id", 7]]
+[ActiveJob] [PaidStatusJob] [353f9223-d74b-4130-b0f3-18e7c27e3902]   [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+[ActiveJob] [PaidStatusJob] [353f9223-d74b-4130-b0f3-18e7c27e3902]   [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[ActiveJob] [PaidStatusJob] [353f9223-d74b-4130-b0f3-18e7c27e3902]   [1m[35mSQL (0.0ms)[0m  [1m[33mUPDATE "bookings" SET "paid" = ?, "updated_at" = ? WHERE "bookings"."id" = ?[0m  [["paid", "t"], ["updated_at", "2018-10-09 22:24:53.449766"], ["id", 6]]
+[ActiveJob] [PaidStatusJob] [353f9223-d74b-4130-b0f3-18e7c27e3902]   [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+[ActiveJob] [PaidStatusJob] [353f9223-d74b-4130-b0f3-18e7c27e3902] Error performing PaidStatusJob (Job ID: 353f9223-d74b-4130-b0f3-18e7c27e3902) from Async(default) in 11.01ms: ActiveRecord::StatementInvalid (SQLite3::BusyException: database is locked: UPDATE "bookings" SET "paid" = ?, "updated_at" = ? WHERE "bookings"."id" = ?):
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/sqlite3-1.3.13-x86-mingw32/lib/sqlite3/statement.rb:108:in `step'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/sqlite3-1.3.13-x86-mingw32/lib/sqlite3/statement.rb:108:in `block in each'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/sqlite3-1.3.13-x86-mingw32/lib/sqlite3/statement.rb:107:in `loop'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/sqlite3-1.3.13-x86-mingw32/lib/sqlite3/statement.rb:107:in `each'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/connection_adapters/sqlite3_adapter.rb:218:in `to_a'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/connection_adapters/sqlite3_adapter.rb:218:in `block (2 levels) in exec_query'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/dependencies/interlock.rb:46:in `block in permit_concurrent_loads'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/concurrency/share_lock.rb:185:in `yield_shares'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/dependencies/interlock.rb:45:in `permit_concurrent_loads'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/connection_adapters/sqlite3_adapter.rb:209:in `block in exec_query'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/connection_adapters/abstract_adapter.rb:613:in `block (2 levels) in log'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/2.3.0/monitor.rb:214:in `mon_synchronize'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/connection_adapters/abstract_adapter.rb:612:in `block in log'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/connection_adapters/abstract_adapter.rb:604:in `log'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/connection_adapters/sqlite3_adapter.rb:208:in `exec_query'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/connection_adapters/sqlite3_adapter.rb:239:in `exec_delete'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/connection_adapters/abstract/database_statements.rb:140:in `update'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/connection_adapters/abstract/query_cache.rb:17:in `update'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/relation.rb:85:in `_update_record'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/persistence.rb:545:in `_update_row'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/locking/optimistic.rb:79:in `_update_row'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/persistence.rb:567:in `_update_record'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/attribute_methods/dirty.rb:293:in `_update_record'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/callbacks.rb:344:in `block in _update_record'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/callbacks.rb:131:in `run_callbacks'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/callbacks.rb:827:in `_run_update_callbacks'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/callbacks.rb:344:in `_update_record'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/timestamp.rb:107:in `_update_record'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/persistence.rb:553:in `create_or_update'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/callbacks.rb:336:in `block in create_or_update'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/callbacks.rb:131:in `run_callbacks'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/callbacks.rb:827:in `_run_save_callbacks'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/callbacks.rb:336:in `create_or_update'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/persistence.rb:129:in `save'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/validations.rb:44:in `save'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/attribute_methods/dirty.rb:35:in `save'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/transactions.rb:308:in `block (2 levels) in save'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/transactions.rb:384:in `block in with_transaction_returning_status'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/connection_adapters/abstract/database_statements.rb:233:in `transaction'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/transactions.rb:210:in `transaction'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/transactions.rb:381:in `with_transaction_returning_status'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/transactions.rb:308:in `block in save'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/transactions.rb:323:in `rollback_active_record_state!'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/transactions.rb:307:in `save'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/suppressor.rb:42:in `save'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/persistence.rb:281:in `block in update'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/transactions.rb:384:in `block in with_transaction_returning_status'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/connection_adapters/abstract/database_statements.rb:235:in `block in transaction'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/connection_adapters/abstract/transaction.rb:194:in `block in within_new_transaction'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/2.3.0/monitor.rb:214:in `mon_synchronize'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/connection_adapters/abstract/transaction.rb:191:in `within_new_transaction'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/connection_adapters/abstract/database_statements.rb:235:in `transaction'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/transactions.rb:210:in `transaction'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/transactions.rb:381:in `with_transaction_returning_status'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activerecord-5.1.6/lib/active_record/persistence.rb:279:in `update'
+C:/Users/Thilina/Desktop/University/Programming/Heroku/Heroku-youRide/app/jobs/paid_status_job.rb:5:in `perform'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activejob-5.1.6/lib/active_job/execution.rb:37:in `block in perform_now'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/callbacks.rb:108:in `block in run_callbacks'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/i18n-1.0.1/lib/i18n.rb:284:in `with_locale'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activejob-5.1.6/lib/active_job/translation.rb:7:in `block (2 levels) in <module:Translation>'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/callbacks.rb:117:in `instance_exec'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/callbacks.rb:117:in `block in run_callbacks'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activejob-5.1.6/lib/active_job/logging.rb:24:in `block (4 levels) in <module:Logging>'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/notifications.rb:166:in `block in instrument'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/notifications.rb:166:in `instrument'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activejob-5.1.6/lib/active_job/logging.rb:23:in `block (3 levels) in <module:Logging>'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activejob-5.1.6/lib/active_job/logging.rb:44:in `block in tag_logger'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/tagged_logging.rb:69:in `block in tagged'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/tagged_logging.rb:26:in `tagged'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/tagged_logging.rb:69:in `tagged'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activejob-5.1.6/lib/active_job/logging.rb:44:in `tag_logger'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activejob-5.1.6/lib/active_job/logging.rb:20:in `block (2 levels) in <module:Logging>'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/callbacks.rb:117:in `instance_exec'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/callbacks.rb:117:in `block in run_callbacks'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/callbacks.rb:135:in `run_callbacks'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activejob-5.1.6/lib/active_job/execution.rb:33:in `perform_now'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activejob-5.1.6/lib/active_job/execution.rb:22:in `block in execute'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/callbacks.rb:108:in `block in run_callbacks'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activejob-5.1.6/lib/active_job/railtie.rb:26:in `block (4 levels) in <class:Railtie>'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/execution_wrapper.rb:85:in `wrap'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/reloader.rb:68:in `block in wrap'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/execution_wrapper.rb:85:in `wrap'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/reloader.rb:67:in `wrap'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activejob-5.1.6/lib/active_job/railtie.rb:25:in `block (3 levels) in <class:Railtie>'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/callbacks.rb:117:in `instance_exec'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/callbacks.rb:117:in `block in run_callbacks'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activesupport-5.1.6/lib/active_support/callbacks.rb:135:in `run_callbacks'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activejob-5.1.6/lib/active_job/execution.rb:20:in `execute'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/activejob-5.1.6/lib/active_job/queue_adapters/async_adapter.rb:68:in `perform'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/safe_task_executor.rb:24:in `block in execute'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/concurrent-ruby-1.0.5/lib/concurrent/synchronization/mri_lockable_object.rb:38:in `block in synchronize'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/concurrent-ruby-1.0.5/lib/concurrent/synchronization/mri_lockable_object.rb:38:in `synchronize'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/concurrent-ruby-1.0.5/lib/concurrent/synchronization/mri_lockable_object.rb:38:in `synchronize'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/safe_task_executor.rb:19:in `execute'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/concurrent-ruby-1.0.5/lib/concurrent/ivar.rb:170:in `safe_execute'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/concurrent-ruby-1.0.5/lib/concurrent/scheduled_task.rb:285:in `process_task'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/timer_set.rb:168:in `block (2 levels) in process_tasks'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:348:in `run_task'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:337:in `block (3 levels) in create_worker'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:320:in `loop'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:320:in `block (2 levels) in create_worker'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:319:in `catch'
+c:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:319:in `block in create_worker'
+[ActiveJob] [ResetCarAvailabilityJob] [9f866883-5ecf-4e95-9ab2-476dc06d6f8c]   [1m[35m (32.1ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ResetCarAvailabilityJob] [9f866883-5ecf-4e95-9ab2-476dc06d6f8c] Performed ResetCarAvailabilityJob (Job ID: 9f866883-5ecf-4e95-9ab2-476dc06d6f8c) from Async(default) in 41.14ms
