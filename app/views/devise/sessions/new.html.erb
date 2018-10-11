@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %>
 <div class="col-sm-6 col-sm-offset-5" style= "margin-left: 35%; margin-right: 100%; margin-top: 100px;">
    <text><h4><%= t('.sign_up', default: 'Login') %></h4></text> 
@@ -42,3 +43,43 @@
     </div>
     </div>
 
+=======
+<%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %>
+<div class="col-sm-6 col-sm-offset-5" style= "margin-left: 35%; margin-right: 100%; margin-top: 100px;">
+   <text><h4><%= t('.sign_up', default: 'Login') %></h4></text> 
+<div class="panel panel-default" style="width: 400px ; height : 250px" >
+  
+
+
+  <div class="panel-body" >
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: 'form' })  do |f| %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end -%>
+
+  <div class="actions">
+    <%= f.submit "Log in" %>
+  </div>
+<% end %>
+
+
+
+</div>
+      
+    </div>
+    </div>
+    
+>>>>>>> Thilina
