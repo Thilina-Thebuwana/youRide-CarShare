@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
   def authorize_user_booking
      redirect_to new_user_session_path, alert: 'You must login in order to make a booking ' unless current_user
   	 end
+    
+ 
 protected
  
 

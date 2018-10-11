@@ -60,9 +60,10 @@
         <td><%= @booking.start_time.to_formatted_s(:short) %></td>
         <td><%= @booking.end_time.to_formatted_s(:short) %></td>
         <td>$<%= @booking.price %>0</td>
-        <% if Time.now < @booking.start_time %>
+        <% if  @booking.paid? %>
+            <%elsif Time.now < @booking.start_time%>
         <td><%= link_to '<button type="button" class="btn btn-dark"">Cancel Booking</button>'.html_safe, @booking, method: :delete, data: { confirm: 'Are you sure you want to delete the booking?' } %></td>
-<% else %>
+
         <%end%>
     </tr>
     
@@ -116,6 +117,7 @@
         }).then(res => res.json()).then(resp => {
                 console.log('payment successful!!!', resp)
              window.alert('Payment was successful');
+            location.reload();
         }).catch(err => console.log('err opccured', err))
        
       });
@@ -126,56 +128,7 @@
 <% if Time.now < @booking.start_time %>
        <text>You have until  <%= @booking.start_time.to_formatted_s(:short) %> to cancel to booking, otherwise you will be charged</text>
 <% else %>
-<div id="paypal-button"></div>
-<script src="https://www.paypalobjects.com/api/checkout.js"></script>
-<script>
-  paypal.Button.render({
-    // Configure environment
-    env: 'sandbox',
-    client: {
-      sandbox: 'demo_sandbox_client_id',
-    },
-    // Customize button (optional)
-    locale: 'en_US',
-    style: {
-      size: 'small',
-      color: 'gold',
-      shape: 'pill',
-    },
-    // Set up a payment
-    payment: function(data, actions) {
-      return actions.payment.create({
-        transactions: [{
-          amount: {
-            total: "<%= @booking.price %>",
-            currency: 'AUD'
-          }
-        }]
-      });
-    },
-    // Execute the payment
-    onAuthorize: function(data, actions) {
-      return actions.payment.execute().then(function(a) {
-          const bookingId = "<%= @booking.id %>"
-          console.log('payyyyyyyyyy', a, 'idddddddd', bookingId)
-        // Show a confirmation message to the buyer
-        return fetch(window.location.href, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify({paid: true})
-        }).then(res => res.json()).then(resp => {
-                console.log('payment successful!!!', resp)
-             window.alert('Payment was successful');
-        }).catch(err => console.log('err opccured', err))
-       
-      });
-    }
-  }, '#paypal-button');
 
-</script>
        
  
  

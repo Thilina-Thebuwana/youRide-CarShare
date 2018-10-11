@@ -1,7 +1,7 @@
 <%= video_tag "vid-bg.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video", poster: "vid-poster.png" %>
 <div class="col-sm-6 col-sm-offset-5" style= "margin-left: 35%; margin-right: 100%; margin-top: 100px;">
    <text> <h4><%= t('.sign_up', default: 'Sign up') %></h4></text>
-<div class="panel panel-default" style="width: 400px ; height : 600px" >
+<div class="panel panel-default" style="width: 400px ; height : 500px" >
   
 
 
@@ -39,16 +39,7 @@
       
       <%= f.submit t('.sign_up', default: 'Sign up'), class: 'btn btn-primary' %>
 
-     <div id = "outer">
-         <%- if devise_mapping.omniauthable? %>
-            <%- resource_class.omniauth_providers.each do |provider| %>
-                
-                    <div id = "inner">
-                        <%= link_to " Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider ), :class => 'btn btn-default' %>
-                    </div>
-                
-            <% end -%>
-         <% end -%>
+    
       </div>
     <% end %>
       
