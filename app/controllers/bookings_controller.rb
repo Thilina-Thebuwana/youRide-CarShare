@@ -5,8 +5,8 @@ class BookingsController < ApplicationController
   # GET /bookings
   # GET /bookings.json
   def index
-    @bookings = Booking.all.order('created_at DESC')
-    @adminpaid =  Booking.where( :paid => false).order('created_at DESC')
+    @adminbookings = Booking.all.order('created_at DESC')
+    @bookings = Booking.where(:user_id => current_user.id).order('created_at DESC')
   end
 
   # GET /bookings/1

@@ -51052,3 +51052,541 @@ Processing by CarsController#index as HTML
 Completed 200 OK in 1131ms (Views: 879.8ms | ActiveRecord: 21.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-10-15 21:44:31 +1100
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CarsController#index as HTML
+  [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."status" = ?[0m  [["status", "Available"]]
+  Rendering cars/index.html.erb within layouts/application
+  Rendered cars/index.html.erb within layouts/application (362.3ms)
+Completed 200 OK in 824ms (Views: 752.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-15 21:44:45 +1100
+Processing by CarsController#index as HTML
+  [1m[36mCar Load (1.0ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."status" = ?[0m  [["status", "Available"]]
+  Rendering cars/index.html.erb within layouts/application
+  Rendered cars/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 340ms (Views: 303.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-10-15 21:44:48 +1100
+Processing by ReigistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (42.0ms)
+Completed 200 OK in 598ms (Views: 573.6ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-10-15 21:45:00 +1100
+Processing by ReigistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pqruC9imVFjz8JEFulxivZuIS7L6+3ecglzUzWwhiBMSUCgHU6ZLw7XbwZ3s1Z8GUyuDHECsPvlCWY1J21AKCg==", "user"=>{"email"=>"new_account@gmail.com", "first_name"=>"Thilina", "last_name"=>"Thebuwana", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "new_account@gmail.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "new_account@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "new_account@gmail.com"], ["encrypted_password", "$2a$10$9XoQ8RjFdIjghle2rtRHvue9IB4D4q/kCm.Euu2CdHl4PW.1M65qa"], ["created_at", "2018-10-15 21:45:00.375460"], ["updated_at", "2018-10-15 21:45:00.375460"], ["first_name", "Thilina"], ["last_name", "Thebuwana"]]
+  [1m[35m (10.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ?, "customer_id" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2018-10-15 21:45:01.550580"], ["last_sign_in_at", "2018-10-15 21:45:01.550580"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2018-10-15 21:45:01.551581"], ["customer_id", "cus_Dn3gOYEO4GdEne"], ["id", 27]]
+  [1m[35m (29.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 1587ms (ActiveRecord: 42.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-15 21:45:01 +1100
+Processing by CarsController#index as HTML
+  [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."status" = ?[0m  [["status", "Available"]]
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 27], ["LIMIT", 1]]
+  Rendered cars/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 356ms (Views: 317.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bookings" for 127.0.0.1 at 2018-10-15 21:45:04 +1100
+Processing by BookingsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering bookings/index.html.erb within layouts/application
+  [1m[36mBooking Load (0.0ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."user_id" = ? ORDER BY created_at DESC[0m  [["user_id", 27]]
+  Rendered bookings/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 357ms (Views: 301.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/bookings" for 127.0.0.1 at 2018-10-15 21:45:31 +1100
+Processing by BookingsController#index as HTML
+  Rendering bookings/index.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 27], ["LIMIT", 1]]
+  [1m[36mBooking Load (0.0ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" ORDER BY created_at DESC[0m
+  [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Car Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Car Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Car Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Car Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCar Load (1.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE Car Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered bookings/index.html.erb within layouts/application (108.7ms)
+Completed 200 OK in 471ms (Views: 423.0ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/bookings" for 127.0.0.1 at 2018-10-15 21:46:33 +1100
+Processing by BookingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering bookings/index.html.erb within layouts/application
+  [1m[36mBooking Load (0.0ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."user_id" = ? ORDER BY created_at DESC[0m  [["user_id", 27]]
+  Rendered bookings/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 351ms (Views: 290.4ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2018-10-15 21:46:40 +1100
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ZZGddjtjcY5gRFWCVCnONZFve2qz2A43NWn3M6Clu6nxTOjVDeeLBu5zU0rJX6/+bSsrzCXdXuZsC8VJsKmV9w=="}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 27], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 10ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-15 21:46:40 +1100
+Processing by CarsController#index as HTML
+  [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."status" = ?[0m  [["status", "Available"]]
+  Rendering cars/index.html.erb within layouts/application
+  Rendered cars/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 386ms (Views: 330.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-10-15 21:46:42 +1100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 368ms (Views: 364.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-10-15 21:46:47 +1100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QpF6T04JCBwgMMWb5fBblHNQUpPRiBH1JTCCKmjnGL5rPy2owN84I6XjceTLFk0UoJH2KH3yNL0iAYhrCtA3yg==", "user"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "admin@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2018-10-15 21:46:47.652615"], ["last_sign_in_at", "2018-10-11 21:16:28.648673"], ["sign_in_count", 15], ["updated_at", "2018-10-15 21:46:47.654623"], ["id", 23]]
+  [1m[35m (8.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 278ms (ActiveRecord: 9.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-15 21:46:47 +1100
+Processing by CarsController#index as HTML
+  [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."status" = ?[0m  [["status", "Available"]]
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  [1m[36mCar Load (1.0ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  Rendered cars/index.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 331ms (Views: 297.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/bookings" for 127.0.0.1 at 2018-10-15 21:46:55 +1100
+Processing by BookingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  Rendering bookings/index.html.erb within layouts/application
+  [1m[36mBooking Load (0.0ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."user_id" = ? ORDER BY created_at DESC[0m  [["user_id", 23]]
+  Rendered bookings/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 341ms (Views: 306.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bookings" for 127.0.0.1 at 2018-10-15 21:47:14 +1100
+Processing by BookingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  Rendering bookings/index.html.erb within layouts/application
+  [1m[36mBooking Load (1.0ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" ORDER BY created_at DESC[0m
+  [1m[36mCar Load (1.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  Rendered bookings/index.html.erb within layouts/application (55.1ms)
+Completed 500 Internal Server Error in 211ms (ActiveRecord: 2.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    30:         <% @adminbookings.each do |booking| %>
+    31:             <tr>
+    32:             <% unless booking.car.blank? %>
+    33:                 <td><%= booking.user.id %></td>
+    34:                 <td><%= booking.car.name %></td>
+    35:                  <td><%= booking.start_time.to_formatted_s(:short) %></td>
+    36:                 <td><%= booking.end_time.to_formatted_s(:short) %></td>
+  
+app/views/bookings/index.html.erb:33:in `block in _app_views_bookings_index_html_erb__380946055_50088564'
+app/views/bookings/index.html.erb:30:in `_app_views_bookings_index_html_erb__380946055_50088564'
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (1.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCreditCard Load (0.0ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mSQL (0.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[35m (10.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCreditCard Load (0.0ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 2]]
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCreditCard Load (1.0ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35mSQL (0.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCreditCard Load (0.0ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 4]]
+  [1m[35m (7.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCreditCard Load (1.0ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."user_id" = ?[0m  [["user_id", 5]]
+  [1m[35mSQL (0.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 5]]
+  [1m[35m (9.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCreditCard Load (0.0ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."user_id" = ?[0m  [["user_id", 6]]
+  [1m[35mSQL (0.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 6]]
+  [1m[35m (15.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCreditCard Load (0.0ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."user_id" = ?[0m  [["user_id", 7]]
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  [1m[35m (15.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCreditCard Load (1.0ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."user_id" = ?[0m  [["user_id", 8]]
+  [1m[35mSQL (0.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 8]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCreditCard Load (0.0ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."user_id" = ?[0m  [["user_id", 9]]
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 9]]
+  [1m[35m (7.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCreditCard Load (0.0ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."user_id" = ?[0m  [["user_id", 10]]
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 10]]
+  [1m[35m (7.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCreditCard Load (0.0ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."user_id" = ?[0m  [["user_id", 11]]
+  [1m[35mSQL (0.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 11]]
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCreditCard Load (0.0ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."user_id" = ?[0m  [["user_id", 12]]
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 12]]
+  [1m[35m (17.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCreditCard Load (0.0ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."user_id" = ?[0m  [["user_id", 13]]
+  [1m[35mSQL (0.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[35m (16.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCreditCard Load (1.0ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."user_id" = ?[0m  [["user_id", 15]]
+  [1m[35mSQL (0.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 15]]
+  [1m[35m (6.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCreditCard Load (0.0ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."user_id" = ?[0m  [["user_id", 16]]
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 16]]
+  [1m[35m (15.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCreditCard Load (0.0ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."user_id" = ?[0m  [["user_id", 17]]
+  [1m[35mSQL (0.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 17]]
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCreditCard Load (0.0ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."user_id" = ?[0m  [["user_id", 18]]
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 18]]
+  [1m[35m (9.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCreditCard Load (0.0ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."user_id" = ?[0m  [["user_id", 19]]
+  [1m[35mSQL (0.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 19]]
+  [1m[35m (25.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCreditCard Load (0.0ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."user_id" = ?[0m  [["user_id", 20]]
+  [1m[35mSQL (0.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 20]]
+  [1m[35m (7.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCreditCard Load (0.0ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."user_id" = ?[0m  [["user_id", 21]]
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 21]]
+  [1m[35m (7.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCreditCard Load (1.0ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."user_id" = ?[0m  [["user_id", 22]]
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "credit_cards" WHERE "credit_cards"."id" = ?[0m  [["id", 1]]
+  [1m[35mSQL (0.0ms)[0m  [1m[31mDELETE FROM "credit_cards" WHERE "credit_cards"."id" = ?[0m  [["id", 2]]
+  [1m[35mSQL (0.0ms)[0m  [1m[31mDELETE FROM "credit_cards" WHERE "credit_cards"."id" = ?[0m  [["id", 3]]
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "credit_cards" WHERE "credit_cards"."id" = ?[0m  [["id", 4]]
+  [1m[35mSQL (0.0ms)[0m  [1m[31mDELETE FROM "credit_cards" WHERE "credit_cards"."id" = ?[0m  [["id", 5]]
+  [1m[35mSQL (0.0ms)[0m  [1m[31mDELETE FROM "credit_cards" WHERE "credit_cards"."id" = ?[0m  [["id", 6]]
+  [1m[35mSQL (0.0ms)[0m  [1m[31mDELETE FROM "credit_cards" WHERE "credit_cards"."id" = ?[0m  [["id", 7]]
+  [1m[35mSQL (0.0ms)[0m  [1m[31mDELETE FROM "credit_cards" WHERE "credit_cards"."id" = ?[0m  [["id", 8]]
+  [1m[35mSQL (0.0ms)[0m  [1m[31mDELETE FROM "credit_cards" WHERE "credit_cards"."id" = ?[0m  [["id", 9]]
+  [1m[35mSQL (0.0ms)[0m  [1m[31mDELETE FROM "credit_cards" WHERE "credit_cards"."id" = ?[0m  [["id", 10]]
+  [1m[35mSQL (0.0ms)[0m  [1m[31mDELETE FROM "credit_cards" WHERE "credit_cards"."id" = ?[0m  [["id", 11]]
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "credit_cards" WHERE "credit_cards"."id" = ?[0m  [["id", 12]]
+  [1m[35mSQL (0.0ms)[0m  [1m[31mDELETE FROM "credit_cards" WHERE "credit_cards"."id" = ?[0m  [["id", 13]]
+  [1m[35mSQL (0.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 22]]
+  [1m[35m (6.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCreditCard Load (0.0ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."user_id" = ?[0m  [["user_id", 23]]
+  [1m[35mSQL (0.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 23]]
+  [1m[35m (7.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCreditCard Load (0.0ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."user_id" = ?[0m  [["user_id", 24]]
+  [1m[35mSQL (0.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 24]]
+  [1m[35m (6.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCreditCard Load (0.0ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."user_id" = ?[0m  [["user_id", 25]]
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 25]]
+  [1m[35m (8.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCreditCard Load (0.0ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."user_id" = ?[0m  [["user_id", 26]]
+  [1m[35mSQL (0.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 26]]
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCreditCard Load (0.0ms)[0m  [1m[34mSELECT "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."user_id" = ?[0m  [["user_id", 27]]
+  [1m[35mSQL (0.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 27]]
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mBooking Load (1.0ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[31mDELETE FROM "bookings" WHERE "bookings"."id" = ?[0m  [["id", 1]]
+  [1m[35m (16.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[31mDELETE FROM "bookings" WHERE "bookings"."id" = ?[0m  [["id", 2]]
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "bookings" WHERE "bookings"."id" = ?[0m  [["id", 3]]
+  [1m[35m (10.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "bookings" WHERE "bookings"."id" = ?[0m  [["id", 4]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[31mDELETE FROM "bookings" WHERE "bookings"."id" = ?[0m  [["id", 5]]
+  [1m[35m (9.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[31mDELETE FROM "bookings" WHERE "bookings"."id" = ?[0m  [["id", 6]]
+  [1m[35m (14.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "bookings" WHERE "bookings"."id" = ?[0m  [["id", 7]]
+  [1m[35m (7.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "bookings" WHERE "bookings"."id" = ?[0m  [["id", 8]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "bookings" WHERE "bookings"."id" = ?[0m  [["id", 9]]
+  [1m[35m (8.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "bookings" WHERE "bookings"."id" = ?[0m  [["id", 10]]
+  [1m[35m (20.0ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/bookings" for 127.0.0.1 at 2018-10-15 21:51:10 +1100
+Processing by BookingsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 1.0ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/bookings_controller.rb:9:in `index'
+Started GET "/" for 127.0.0.1 at 2018-10-15 21:51:19 +1100
+Processing by CarsController#index as HTML
+  [1m[36mCar Load (1.0ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."status" = ?[0m  [["status", "Available"]]
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  Rendered cars/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 359ms (Views: 325.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-10-15 21:51:23 +1100
+Processing by ReigistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 485ms (Views: 483.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-10-15 21:51:35 +1100
+Processing by ReigistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oAJ+LNRmeeWsNOD0GUsF6FJ4xUJY5zYfFtdO76DZNV4RZG/trx7b83u3sZzG/Q+7oaso2f5ki42qenXZRzURzQ==", "user"=>{"email"=>"thilina@gmail.com", "first_name"=>"Thilina ", "last_name"=>"THbeuwan", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "thilina@gmail.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "thilina@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "thilina@gmail.com"], ["encrypted_password", "$2a$10$aPsF2gNF9ZjyHBl0/ywHgeL.OFYDRhRvG/pInLXLFH2BIL6iOkCfe"], ["created_at", "2018-10-15 21:51:35.295641"], ["updated_at", "2018-10-15 21:51:35.295641"], ["first_name", "Thilina "], ["last_name", "THbeuwan"]]
+  [1m[35m (6.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ?, "customer_id" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2018-10-15 21:51:36.532165"], ["last_sign_in_at", "2018-10-15 21:51:36.532165"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2018-10-15 21:51:36.533169"], ["customer_id", "cus_Dn3nfGp9vNfyDz"], ["id", 1]]
+  [1m[35m (18.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 1590ms (ActiveRecord: 27.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-15 21:51:36 +1100
+Processing by CarsController#index as HTML
+  [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."status" = ?[0m  [["status", "Available"]]
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered cars/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 334ms (Views: 300.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bookings/new" for 127.0.0.1 at 2018-10-15 21:51:39 +1100
+Processing by BookingsController#new as HTML
+  Rendering bookings/new.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."status" = ?[0m  [["status", "Available"]]
+  Rendered bookings/_form.html.erb (12.0ms)
+  Rendered bookings/new.html.erb within layouts/application (48.0ms)
+Completed 200 OK in 368ms (Views: 335.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/bookings" for 127.0.0.1 at 2018-10-15 21:51:40 +1100
+Processing by BookingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HHKoy/1xCIQDJdmUq72zwhxs1Ao9TgjyaM2O4TkjrOVPdQ/uq6ZvB6OHpwcYR8prad5N2DHXyDVM2VEqPvF5/w==", "booking"=>{"car_id"=>"8"}, "post"=>{"end_time"=>"15"}, "commit"=>"Create Booking"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBooking Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "bookings" WHERE ("bookings"."id" IS NOT NULL) AND "bookings"."car_id" = ? AND (start_time < '2018-10-15 22:21:40.931212' AND end_time > '2018-10-15 22:06:40.931212') LIMIT ?[0m  [["car_id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "bookings" ("user_id", "car_id", "start_time", "end_time", "created_at", "updated_at", "price") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["car_id", 8], ["start_time", "2018-10-15 22:06:40.931212"], ["end_time", "2018-10-15 22:21:40.931212"], ["created_at", "2018-10-15 21:51:40.938221"], ["updated_at", "2018-10-15 21:51:40.938221"], ["price", 15.0]]
+  [1m[35m (17.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "cars" SET "status" = ?, "updated_at" = ? WHERE "cars"."id" = ?[0m  [["status", "Unavailable"], ["updated_at", "2018-10-15 21:51:40.960269"], ["id", 8]]
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] Enqueued ResetCarAvailabilityJob (Job ID: 7d9a5eda-7130-4ee5-8f96-ea4284726b84) to Async(default) at 2018-10-15 11:21:40 UTC with arguments: #<GlobalID:0xb215770 @uri=#<URI::GID gid://you-ride/Car/8>>
+[ActiveJob] Enqueued PaidStatusJob (Job ID: 61d10c69-6f33-4422-9534-9c7f3d8f0d0e) to Async(default) at 2018-10-15 11:21:40 UTC with arguments: #<GlobalID:0x9b14188 @uri=#<URI::GID gid://you-ride/Booking/1>>
+Redirected to http://localhost:3000/bookings/1
+Completed 302 Found in 171ms (ActiveRecord: 26.1ms)
+
+
+Started GET "/bookings/1" for 127.0.0.1 at 2018-10-15 21:51:41 +1100
+Processing by BookingsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBooking Load (0.0ms)[0m  [1m[34mSELECT  "bookings".* FROM "bookings" WHERE "bookings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering bookings/show.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendered bookings/show.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 328ms (Views: 294.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/bookings" for 127.0.0.1 at 2018-10-15 21:51:42 +1100
+Processing by BookingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering bookings/index.html.erb within layouts/application
+  [1m[36mBooking Load (0.0ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."user_id" = ? ORDER BY created_at DESC[0m  [["user_id", 1]]
+  [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendered bookings/index.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 361ms (Views: 326.0ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2018-10-15 21:51:49 +1100
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"m81ckWlu7F+6fMXTGJgbGbTouDThS4aYdswcpqI+Cba5j1zYzuXIsHl58NASZTNDyhJvEkS/w02Ps8vu4nbVuQ=="}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-15 21:51:49 +1100
+Processing by CarsController#index as HTML
+  [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."status" = ?[0m  [["status", "Available"]]
+  Rendering cars/index.html.erb within layouts/application
+  Rendered cars/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 372ms (Views: 332.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-10-15 21:51:51 +1100
+Processing by ReigistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 484ms (Views: 483.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-10-15 21:52:04 +1100
+Processing by ReigistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"23DXDX4XJ2bC2ClFahdRrh899CywdHus49rkiZ7Llf8GmwztX0987fjFQkQAkaRlCj5unRJWXxV4biYXZO/Cyw==", "user"=>{"email"=>"admin@gmail.com", "first_name"=>"admin", "last_name"=>"admin", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@gmail.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "first_name", "last_name") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "admin@gmail.com"], ["encrypted_password", "$2a$10$BwcQSUDvJ4l.4ZLUmLOPB.leoXMITNv/hjyANGl4ToTGTrLpS/uxm"], ["created_at", "2018-10-15 21:52:04.479013"], ["updated_at", "2018-10-15 21:52:04.479013"], ["first_name", "admin"], ["last_name", "admin"]]
+  [1m[35m (8.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ?, "customer_id" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2018-10-15 21:52:05.586338"], ["last_sign_in_at", "2018-10-15 21:52:05.586338"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2018-10-15 21:52:05.588337"], ["customer_id", "cus_Dn3niBKuSRDcUv"], ["id", 2]]
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 1443ms (ActiveRecord: 17.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-15 21:52:05 +1100
+Processing by CarsController#index as HTML
+  [1m[36mCar Load (1.0ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."status" = ?[0m  [["status", "Available"]]
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered cars/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 335ms (Views: 300.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/bookings" for 127.0.0.1 at 2018-10-15 21:52:18 +1100
+Processing by BookingsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering bookings/index.html.erb within layouts/application
+  [1m[36mBooking Load (0.0ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."user_id" = ? ORDER BY created_at DESC[0m  [["user_id", 2]]
+  Rendered bookings/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 349ms (Views: 313.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/bookings/new" for 127.0.0.1 at 2018-10-15 21:52:20 +1100
+Processing by BookingsController#new as HTML
+  Rendering bookings/new.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCar Load (1.0ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."status" = ?[0m  [["status", "Available"]]
+  Rendered bookings/_form.html.erb (9.0ms)
+  Rendered bookings/new.html.erb within layouts/application (43.0ms)
+Completed 200 OK in 363ms (Views: 331.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/bookings" for 127.0.0.1 at 2018-10-15 21:52:22 +1100
+Processing by BookingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering bookings/index.html.erb within layouts/application
+  [1m[36mBooking Load (0.0ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."user_id" = ? ORDER BY created_at DESC[0m  [["user_id", 2]]
+  Rendered bookings/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 329ms (Views: 296.2ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND ("users"."id" != ?) LIMIT ?[0m  [["email", "admin@gmail.com"], ["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "admin" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2018-10-15 21:53:33.089824"], ["admin", "t"], ["id", 2]]
+  [1m[35m (14.0ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for 127.0.0.1 at 2018-10-15 21:53:35 +1100
+Processing by CarsController#index as HTML
+  [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."status" = ?[0m  [["status", "Available"]]
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  Rendered cars/index.html.erb within layouts/application (34.0ms)
+Completed 200 OK in 507ms (Views: 470.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bookings" for 127.0.0.1 at 2018-10-15 21:53:39 +1100
+Processing by BookingsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering bookings/index.html.erb within layouts/application
+  [1m[36mBooking Load (0.0ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" ORDER BY created_at DESC[0m
+  [1m[36mCar Load (1.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered bookings/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 360ms (Views: 325.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/index" for 127.0.0.1 at 2018-10-15 21:53:41 +1100
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 369ms (Views: 334.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/bookings" for 127.0.0.1 at 2018-10-15 21:53:43 +1100
+Processing by BookingsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering bookings/index.html.erb within layouts/application
+  [1m[36mBooking Load (0.0ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" ORDER BY created_at DESC[0m
+  [1m[36mCar Load (0.0ms)[0m  [1m[34mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered bookings/index.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 345ms (Views: 312.4ms | ActiveRecord: 1.0ms)
+
+

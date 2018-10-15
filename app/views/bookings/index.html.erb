@@ -27,7 +27,7 @@
     </thead>
 
     <tbody>
-        <% @bookings.each do |booking| %>
+        <% @adminbookings.each do |booking| %>
             <tr>
             <% unless booking.car.blank? %>
                 <td><%= booking.user.id %></td>
